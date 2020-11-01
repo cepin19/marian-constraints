@@ -139,7 +139,8 @@ private:
     template<typename T> Expr constant(const std::vector<T>& data) const { return constant(Shape{(int)data.size()}, data); } // same as constant() but assuming vector
     Expr indices(const std::vector<uint32_t>& data) const { return graph()->indices(data); } // actually the same as constant(data) for this data type
     std::vector<float> getFactorMasks(size_t factorGroup, const std::vector<WordIndex>& indices) const;
-private:
+
+        private:
     // members
     // @TODO: we don't use the RationalLoss component anymore, can be removed again, and replaced just by the Expr
     std::vector<Ptr<RationalLoss>> logits_; // [group id][B..., num factors in group]

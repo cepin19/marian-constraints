@@ -10,6 +10,193 @@
 #include "translator/helpers.h"
 #include "translator/nth_element.h"
 
+
+#include <memory>
+
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+// A Trie node
+struct Trie
+{
+    // true when node is a leaf node
+    bool isLeaf;
+
+    // each node stores a map to its child nodes
+    unordered_map<char, Trie*> map;
+};
+
+// Function that returns a new Trie node
+Trie* getNewTrieNode()
+{
+    Trie* node = new Trie;
+    node->isLeaf = false;
+
+    return node;
+}
+
+// Iterative function to insert a string in Trie.
+void insert(Trie*& head, char* str)
+{
+    if (head == nullptr)
+        head = getNewTrieNode();
+
+    // start from root node
+    Trie* curr = head;
+    while (*str)
+    {
+        // create a new node if path doesn't exists
+        if (curr->map.find(*str) == curr->map.end())
+            curr->map[*str] = getNewTrieNode();
+
+        // go to next node
+        curr = curr->map[*str];
+
+        // move to next character
+        str++;
+    }
+
+    // mark current node as leaf
+    curr->isLeaf = true;
+}
+
+// returns true if given node has any children
+bool haveChildren(Trie const* curr)
+{
+    // don't use (curr->map).size() to check for children
+
+    for (auto it : curr->map)
+        if (it.second != nullptr)
+            return true;
+
+    return false;
+}
+
+// Recursive function to delete a string in Trie.
+bool deletion(Trie*& curr, char* str)
+{
+    // return if Trie is empty
+    if (curr == nullptr)
+        return false;
+
+    // if we have not reached the end of the string
+    if (*str)
+    {
+        // recur for the node corresponding to next character in
+        // the string and if it returns true, delete current node
+        // (if it is non-leaf)
+        if (curr != nullptr &&  curr->map.find(*str) != curr->map.end() &&
+            deletion(curr->map[*str], str + 1) && curr->isLeaf == false)
+        {
+            if (!haveChildren(curr))
+            {
+                delete curr;;
+                curr = nullptr;
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
+    // if we have reached the end of the string
+    if (*str == '\0' && curr->isLeaf)
+    {
+        // if current node is a leaf node and don't have any children
+        if (!haveChildren(curr))
+        {
+            delete curr;; // delete current node
+            curr = nullptr;
+            return true; // delete non-leaf parent nodes
+        }
+
+            // if current node is a leaf node and have children
+        else
+        {
+            // mark current node as non-leaf node (DON'T DELETE IT)
+            curr->isLeaf = false;
+            return false;	   // don't delete its parent nodes
+        }
+    }
+
+    return false;
+}
+
+// Iterative function to search a string in Trie. It returns true
+// if the string is found in the Trie, else it returns false
+bool search(Trie* head, char* str)
+{
+    // return false if Trie is empty
+    if (head == nullptr)
+        return false;
+
+    Trie* curr = head;
+    while (*str)
+    {
+        // go to next node
+        curr = curr->map[*str];
+
+        // if string is invalid (reached end of path in Trie)
+        if (curr == nullptr)
+            return false;
+
+        // move to next character
+        str++;
+    }
+
+    // if current node is a leaf and we have reached the
+    // end of the string, return true
+    return curr->isLeaf;
+}
+
+
+/*
+// Memory efficient Trie Implementation in C++ using Map
+int main()
+{
+    Trie* head = nullptr;
+
+    insert(head, "hello");
+    cout << search(head, "hello") << " ";   	// print 1
+
+    insert(head, "helloworld");
+    cout << search(head, "helloworld") << " ";  // print 1
+
+    cout << search(head, "helll") << " ";   	// print 0 (Not present)
+
+    insert(head, "hell");
+    cout << search(head, "hell") << " ";		// print 1
+
+    insert(head, "h");
+    cout << search(head, "h") << endl;  		// print 1 + newline
+
+    deletion(head, "hello");
+    cout << search(head, "hello") << " ";   	// print 0 (hello deleted)
+    cout << search(head, "helloworld") << " ";  // print 1
+    cout << search(head, "hell") << endl;   	// print 1 + newline
+
+    deletion(head, "h");
+    cout << search(head, "h") << " ";   		// print 0 (h deleted)
+    cout << search(head, "hell") << " ";		// print 1
+    cout << search(head, "helloworld") << endl; // print 1 + newline
+
+    deletion(head, "helloworld");
+    cout << search(head, "helloworld") << " ";  // print 0
+    cout << search(head, "hell") << " ";		// print 1
+
+    deletion(head, "hell");
+    cout << search(head, "hell") << endl;   	// print 0 + newline
+
+    if (head == nullptr)
+        cout << "Trie empty!!\n";   			// Trie is empty now
+
+    cout << search(head, "hell");   			// print 0
+
+    return 0;
+}*/
+
 namespace marian {
 
 class BeamSearch {
@@ -22,8 +209,12 @@ private:
   const float INVALID_PATH_SCORE = std::numeric_limits<float>::lowest(); // @TODO: observe this closely
   const bool PURGE_BATCH = true; // @TODO: diagnostic, to-be-removed once confirmed there are no issues.
   std::string paraphrasePath_;
-  float paraphraseProb_;
+    bool constraintsModifySoftmax=false;
+    float constraintBonus_;
+
+    float paraphraseProb_;
   bool paraphrase_ = false;
+
 
 public:
   BeamSearch(Ptr<Options> options,
@@ -33,10 +224,12 @@ public:
         scorers_(scorers),
         beamSize_(options_->get<size_t>("beam-size")),
         trgVocab_(trgVocab),
-        paraphrasePath_(options_->get<std::string>("paraphrase-source")),
-        paraphraseProb_(options_->get<float>("paraphrase-probability"))
+        paraphrasePath_(options_->get<std::string>("negative-constraints")),
+        constraintsModifySoftmax(options_->get<bool>("constraints-modify-scores")),
+        constraintBonus_(options_->get<float>("constraint-bonus")),
+        paraphraseProb_(options_->get<float>("negative-constraint-probability"))
          {
-          if (options_->get<std::string>("paraphrase-source") != "") {
+          if (options_->get<std::string>("negative-constraints") != "") {
             paraphrase_ = true;
           }
         }
@@ -111,7 +304,6 @@ public:
           currentDimBatch++;
       }
     }
-
     for(size_t i = 0; i < nBestKeys.size(); ++i) { // [currentDimBatch, beamSize] flattened
       // Keys encode batchIdx, beamHypIdx, and word index in the entire beam.
       // They can be between 0 and (vocabSize * nBestBeamSize * batchSize)-1.
@@ -324,11 +516,17 @@ public:
     //Get the vocabulary IDs from the decode text file
     std::unordered_set<Word> vocabIDsent;
     if (paraphrase_) {
-      static std::ifstream goldtrans(options_->get<std::string>("paraphrase-source"));
+      static std::ifstream goldtrans(options_->get<std::string>("negative-constraints"));
       std::string line;
       std::vector<std::string> num_tokens;
       std::getline(goldtrans, line);
       tokenizeAndConvertToVocabIDs(line, vocabIDsent);
+      //std::cout << "neg:" << line <<std::endl;
+      LOG(info, "neg: {} ", line);
+      for (auto id:vocabIDsent){
+          std::cerr<<id.toWordIndex()<<","<<std::endl;
+      }
+
     }
 
     auto factoredVocab = trgVocab_->tryAs<FactoredVocab>();
@@ -490,7 +688,17 @@ public:
         // compute expanded path scores with word prediction probs from all scorers
         auto expandedPathScores = prevPathScores; // will become [maxBeamSize, 1, currDimBatch, dimVocab]
         Expr logProbs;
-        for(size_t i = 0; i < scorers_.size(); ++i) {
+          Expr nc;
+          if (constraintsModifySoftmax ) {
+              std::vector<float> neg_mask(32000,0.0);
+              for (auto w:vocabIDsent) {
+                  //std::cerr<<w.toWordIndex()<<std::endl;
+                  neg_mask[w.toWordIndex()] = constraintBonus_;
+                  nc= graph->constant({1, 1, (int)currentDimBatch, 32000}, inits::fromVector(neg_mask));
+
+              }
+          }
+          for(size_t i = 0; i < scorers_.size(); ++i) {
           if (factorGroup == 0) {
             // compute output probabilities for current output time step
             //  - uses hypIndices[index in beam, 1, batch index, 1] to reorder scorer state to reflect the top-N in beams[][]
@@ -504,13 +712,21 @@ public:
             //      factoredVocab ? factoredVocab->word2string(prevWords[kk]) : (*batch->back()->vocab())[prevWords[kk]],
             //      prevScores[kk]);
             states[i] = scorers_[i]->step(graph, states[i], hypIndices, prevWords, batchIndices, (int)maxBeamSize);
-            if (numFactorGroups == 1) // @TODO: this branch can go away
-              logProbs = states[i]->getLogProbs().getLogits(); // [maxBeamSize, 1, currentDimBatch, dimVocab]
-            else
-            {
+
+          //  if (numFactorGroups == 1) // @TODO: this branch can go away
+           //   logProbs = states[i]->getLogProbs().getLogits(); // [maxBeamSize, 1, currentDimBatch, dimVocab]
+
+         //   else
+           // {
               auto shortlist = scorers_[i]->getShortlist();
-              logProbs = states[i]->getLogProbs().getFactoredLogits(factorGroup, shortlist); // [maxBeamSize, 1, currentDimBatch, dimVocab]
-            }
+              logProbs = states[i]->getLogProbs().getFactoredLogits(factorGroup); // [maxBeamSize, 1, currentDimBatch, dimVocab]
+              //debug(logProbs,"logProbs");
+              if (constraintsModifySoftmax) {
+                    logProbs=logProbs+nc;
+                  }
+              //debug(logProbs,"logProbs");
+
+            //}
           }
           else {
             // add secondary factors
@@ -525,7 +741,7 @@ public:
             logProbs = states[i]->getLogProbs().getFactoredLogits(factorGroup, /*shortlist=*/ nullptr, hypIndices, maxBeamSize); // [maxBeamSize, 1, currentDimBatch, dimVocab]
           }
           // expand all hypotheses, [maxBeamSize, 1, currentDimBatch, 1] -> [maxBeamSize, 1, currentDimBatch, dimVocab]
-          expandedPathScores = expandedPathScores + scorers_[i]->getWeight() * logProbs;
+          expandedPathScores = expandedPathScores + scorers_[i]->getWeight() * logProbs ;
         }
 
         // make beams continuous
@@ -567,7 +783,7 @@ public:
                        factoredVocab, factorGroup,
                        emptyBatchEntries, // [origDimBatch] - empty source batch entries are marked with true
                        batchIdxMap); // used to create a reverse batch index map to recover original batch indices for this step
-        if (paraphrase_){
+        if (paraphrase_ && !constraintsModifySoftmax){
           beams = filterForParaphrases(beams, vocabIDsent);
         }
       } // END FOR factorGroup = 0 .. numFactorGroups-1

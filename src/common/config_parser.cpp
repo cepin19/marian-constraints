@@ -622,11 +622,16 @@ void ConfigParser::addOptionsTranslation(cli::CLIWrapper& cli) {
   cli.add<bool>("--no-spm-decode",
       "Keep the output segmented into SentencePiece subwords");
 #endif
-  cli.add<std::string>("--paraphrase-source",
-     "Paraphrase given an already translated source.")
+  cli.add<std::string>("--negative-constraints",
+     "File with negative constraints, parallel to the input source file.")
     ->implicit_val("");
-  cli.add<float>("--paraphrase-probability",
-     "Paraphrase if the probability is lower than.", -0.2f);
+    cli.add<bool>("--constraints-modify-scores",
+     "add bonus/penalty to scores of the contrained tokens instead of filtering beams");
+    cli.add<float>("--constraint-bonus",
+     "Bonus/penalty(for negative numbers) for tokens in constraints list", -99999.f);
+
+  cli.add<float>("--negative-constraint-probability",
+     "Blacklist the token from constraints if it's probability is lower than this number.", -0.2f);
 
   addSuboptionsDevices(cli);
   addSuboptionsInputLength(cli);
