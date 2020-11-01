@@ -16,7 +16,7 @@
 #include <iostream>
 #include <unordered_map>
 using namespace std;
-
+/*
 // A Trie node
 struct Trie
 {
@@ -152,7 +152,7 @@ bool search(Trie* head, char* str)
 }
 
 
-/*
+
 // Memory efficient Trie Implementation in C++ using Map
 int main()
 {

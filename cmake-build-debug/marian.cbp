@@ -1,0 +1,2537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="marian"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\3rd_party\;CMake Files\src\3rd_party\intgemm\;CMake Files\src\3rd_party\yaml-cpp\;CMake Files\src\3rd_party\SQLiteCpp\;CMake Files\src\3rd_party\pathie-cpp\;CMake Files\src\3rd_party\zlib\;CMake Files\src\3rd_party\sentencepiece\;CMake Files\src\3rd_party\sentencepiece\src\;CMake Files\src\common\;CMake Files\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 package"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package_source">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 package_source"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_decoder">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian-decoder" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_decoder"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_decoder/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian-decoder" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_decoder/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_train">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_train"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_train/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_train/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_version">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_version"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_scorer">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian-scorer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_scorer"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_scorer/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian-scorer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_scorer/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/libmarian.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/libmarian.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_vocab">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian-vocab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_vocab"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_vocab/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian-vocab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_vocab/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_conv">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian-conv" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_conv"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="marian_conv/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/marian-conv" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/fbgemm/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/intgemm"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 marian_conv/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="3rd_party_installs">
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/Makefile&quot;  VERBOSE=1 3rd_party_installs"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libyaml-cpp">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/libyaml-cpp.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/.."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/Makefile&quot;  VERBOSE=1 libyaml-cpp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libyaml-cpp/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/libyaml-cpp.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/.."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/Makefile&quot;  VERBOSE=1 libyaml-cpp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SQLiteCpp">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/SQLiteCpp.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add option="-DSQLITE_ENABLE_COLUMN_METADATA"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/sqlite3"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/Makefile&quot;  VERBOSE=1 SQLiteCpp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SQLiteCpp/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/SQLiteCpp.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add option="-DSQLITE_ENABLE_COLUMN_METADATA"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/sqlite3"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/Makefile&quot;  VERBOSE=1 SQLiteCpp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pathie-cpp">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/pathie-cpp.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/.."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/Makefile&quot;  VERBOSE=1 pathie-cpp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pathie-cpp/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/pathie-cpp.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/.."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/Makefile&quot;  VERBOSE=1 pathie-cpp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="zlib">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/zlib.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/Makefile&quot;  VERBOSE=1 zlib"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="zlib/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/zlib.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/Makefile&quot;  VERBOSE=1 zlib/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sentencepiece_train-static">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/libsentencepiece_train.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 sentencepiece_train-static"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sentencepiece_train-static/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/libsentencepiece_train.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 sentencepiece_train-static/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sentencepiece">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/libsentencepiece.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 sentencepiece"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sentencepiece/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/libsentencepiece.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 sentencepiece/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_encode">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_encode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_encode"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_encode/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_encode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_encode/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sentencepiece_train">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/libsentencepiece_train.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 sentencepiece_train"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sentencepiece_train/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/libsentencepiece_train.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 sentencepiece_train/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_train">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_train" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_train"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_train/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_train" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_train/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_decode">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_decode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_decode"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_decode/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_decode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_decode/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_normalize">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_normalize" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_normalize"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_normalize/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_normalize" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_normalize/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sentencepiece-static">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/libsentencepiece.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 sentencepiece-static"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sentencepiece-static/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/libsentencepiece.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 sentencepiece-static/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_export_vocab">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_export_vocab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_export_vocab"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="spm_export_vocab/fast">
+				<Option output="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/spm_export_vocab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBLAS_FOUND=1"/>
+					<Add option="-DMKL_FOUND=1"/>
+					<Add directory="/opt/intel/mkl/include"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/."/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece"/>
+					<Add directory="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 spm_export_vocab/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/sqlite3/sqlite3.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Backup.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Column.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Database.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Exception.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Statement.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/SQLiteCpp/CMakeFiles/SQLiteCpp.dir/src/Transaction.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/entry_iterator.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/errors.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/path.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/pathie.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/pathie_ifstream.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/pathie_ofstream.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/pathie-cpp/CMakeFiles/pathie-cpp.dir/src/temp.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/sentencepiece.pb.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/sentencepiece.pb.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece_train"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/sentencepiece.pb.h.rule">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece_train"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/sentencepiece_model.pb.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/sentencepiece_model.pb.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece_train"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/sentencepiece/src/sentencepiece_model.pb.h.rule">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece_train"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/binary_renamed.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/contrib/graphbuilder.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/contrib/graphbuilderadapter.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/convert.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/directives.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emit.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emitfromevents.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emitter.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emitterstate.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/emitterutils.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/exceptions.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/exp.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/memory.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/node_data.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/nodebuilder.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/nodeevents.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/null.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/ostream_wrapper.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/parse.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/parser.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/regex_yaml.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/scanner.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/scanscalar.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/scantag.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/scantoken.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/simplekey.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/singledocparser.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/stream.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/tag.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/yaml-cpp/CMakeFiles/libyaml-cpp.dir/yaml-node.cpp.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/adler32.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/compress.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/crc32.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/deflate.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/gzclose.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/gzlib.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/gzread.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/gzwrite.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/infback.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/inffast.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/inflate.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/inftrees.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/trees.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/uncompr.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake-build-debug/src/3rd_party/zlib/CMakeFiles/zlib.dir/zutil.c.o">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/ExceptionWithCallStack.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/ExceptionWithCallStack.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/Assertion.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/Backup.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/Column.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/Database.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/Exception.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/Statement.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/Transaction.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/Utils.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/include/SQLiteCpp/VariadicBind.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/sqlite3">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/sqlite3/sqlite3.c">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/sqlite3/sqlite3.h">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/src/Backup.cpp">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/src/Column.cpp">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/src/Database.cpp">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/src/Exception.cpp">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/src/Statement.cpp">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/src/Transaction.cpp">
+			<Option target="SQLiteCpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/cnpy/cnpy.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/cnpy/cnpy.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm/intgemm.cc">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm/intgemm.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/src/entry_iterator.cpp">
+			<Option target="pathie-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/src/errors.cpp">
+			<Option target="pathie-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/src/path.cpp">
+			<Option target="pathie-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/src/pathie.cpp">
+			<Option target="pathie-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/src/pathie_ifstream.cpp">
+			<Option target="pathie-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/src/pathie_ofstream.cpp">
+			<Option target="pathie-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/src/temp.cpp">
+			<Option target="pathie-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/phf/phf.cc">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/phf/phf.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/bpe_model.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/bpe_model.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/bpe_model_trainer.cc">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/bpe_model_trainer.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/builder.cc">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/builder.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/char_model.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/char_model.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/char_model_trainer.cc">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/char_model_trainer.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/common.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/error.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/filesystem.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/filesystem.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/flags.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/flags.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/freelist.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/model_factory.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/model_factory.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/model_interface.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/model_interface.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/normalization_rule.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/normalizer.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/normalizer.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/sentencepiece_processor.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/sentencepiece_processor.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/sentencepiece_trainer.cc">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/sentencepiece_trainer.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/spm_decode_main.cc">
+			<Option target="spm_decode"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/spm_encode_main.cc">
+			<Option target="spm_encode"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/spm_export_vocab_main.cc">
+			<Option target="spm_export_vocab"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/spm_normalize_main.cc">
+			<Option target="spm_normalize"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/spm_train_main.cc">
+			<Option target="spm_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/testharness.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/trainer_factory.cc">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/trainer_factory.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/trainer_interface.cc">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/trainer_interface.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/unicode_script.cc">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/unicode_script.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/unicode_script_map.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/unigram_model.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/unigram_model.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/unigram_model_trainer.cc">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/unigram_model_trainer.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/util.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/util.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/word_model.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/word_model.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/word_model_trainer.cc">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/word_model_trainer.h">
+			<Option target="sentencepiece_train-static"/>
+			<Option target="sentencepiece_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/third_party/absl/strings/string_view.cc">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/third_party/absl/strings/string_view.h">
+			<Option target="sentencepiece"/>
+			<Option target="sentencepiece-static"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/binary_renamed.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/contrib/graphbuilder.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/contrib/graphbuilder.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/contrib/graphbuilderadapter.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/contrib/graphbuilderadapter.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/convert.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/directives.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/directives.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/emit.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/emitfromevents.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/emitfromevents.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/emitter.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/emitter.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/emitterstate.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/emitterstate.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/emitterutils.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/emitterutils.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/exceptions.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/exceptions.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/exp.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/exp.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/memory.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/node_data.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/nodebuilder.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/nodebuilder.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/nodeevents.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/nodeevents.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/null.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/null.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/ostream_wrapper.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/ostream_wrapper.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/parse.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/parser.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/parser.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/regex_yaml.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/regex_yaml.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/scanner.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/scanner.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/scanscalar.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/scanscalar.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/scantag.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/scantag.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/scantoken.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/simplekey.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/singledocparser.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/singledocparser.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/stream.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/stream.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/tag.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/tag.h">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/yaml-node.cpp">
+			<Option target="libyaml-cpp"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/adler32.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/compress.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/crc32.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/crc32.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/deflate.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/deflate.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/gzclose.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/gzguts.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/gzlib.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/gzread.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/gzwrite.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/infback.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/inffast.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/inffast.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/inffixed.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/inflate.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/inflate.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/inftrees.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/inftrees.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/trees.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/trees.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/uncompr.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/zconf.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/zlib.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/zutil.c">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/zutil.h">
+			<Option target="zlib"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/command/marian_conv.cpp">
+			<Option target="marian_conv"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/command/marian_decoder.cpp">
+			<Option target="marian_decoder"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/command/marian_main.cpp">
+			<Option target="marian_train"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/command/marian_scorer.cpp">
+			<Option target="marian_scorer"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/command/marian_vocab.cpp">
+			<Option target="marian_vocab"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/aliases.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/binary.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/binary.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/build_info.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/build_info.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/cli_helper.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/cli_helper.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/cli_wrapper.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/cli_wrapper.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/config.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/config.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/config_parser.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/config_parser.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/config_validator.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/config_validator.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/fastopt.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/fastopt.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/file_stream.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/file_stream.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/filesystem.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/filesystem.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/io.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/io.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/logging.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/logging.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/options.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/options.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/types.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/types.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/utils.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/utils.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/version.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/version.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/alignment.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/alignment.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/corpus.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/corpus.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/corpus_base.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/corpus_base.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/corpus_nbest.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/corpus_nbest.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/corpus_sqlite.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/corpus_sqlite.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/default_vocab.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/factored_vocab.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/factored_vocab.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/sentencepiece_vocab.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/text_input.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/text_input.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/vocab.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/data/vocab.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/expression_graph.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/expression_graph.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/expression_operators.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/expression_operators.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/node.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/node.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/node_initializers.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/node_initializers.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/node_operators.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/graph/node_operators.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/layers/convolution.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/layers/convolution.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/layers/generic.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/layers/generic.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/layers/loss.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/layers/loss.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/layers/weight.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/layers/weight.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/microsoft/quicksand.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/microsoft/quicksand.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/models/encoder_decoder.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/models/encoder_decoder.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/models/model_factory.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/models/model_factory.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/models/transformer_stub.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/optimizers/clippers.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/optimizers/clippers.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/optimizers/optimizers.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/optimizers/optimizers.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/rescorer/score_collector.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/rescorer/score_collector.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/rnn/attention.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/rnn/attention.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/rnn/cells.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/rnn/cells.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/backend.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/backend.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/cpu/device.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/cpu/fbgemm/packed_gemm.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/cpu/fbgemm/packed_gemm.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/cpu/integer_common.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/cpu/integer_common.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/cpu/prod.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/cpu/tensor_operators.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/rand.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/rand.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/tensor.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/tensors/tensor.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/communicator.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/communicator.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_async.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_async.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_async_drop.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_async_drop.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_multinode.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_multinode.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_multinode_sync.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_multinode_sync.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_singleton.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_singleton.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_sync.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/graph_group_sync.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/scheduler.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/scheduler.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/validator.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/training/validator.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/helpers.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/helpers.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/history.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/history.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/nth_element.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/nth_element.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/output_collector.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/output_collector.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/output_printer.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/output_printer.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/scorers.cpp">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/translator/scorers.h">
+			<Option target="marian"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\3rd_party\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\3rd_party\intgemm\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm/compile_test_avx512.cc">
+			<Option virtualFolder="CMake Files\src\3rd_party\intgemm\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm/compile_test_avx512vnni.cc">
+			<Option virtualFolder="CMake Files\src\3rd_party\intgemm\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm/intgemm_config.h.in">
+			<Option virtualFolder="CMake Files\src\3rd_party\intgemm\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/yaml-cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\3rd_party\yaml-cpp\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/SQLiteCpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\3rd_party\SQLiteCpp\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/pathie-cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\3rd_party\pathie-cpp\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/zlib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\3rd_party\zlib\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\3rd_party\sentencepiece\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/config.h.in">
+			<Option virtualFolder="CMake Files\src\3rd_party\sentencepiece\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/sentencepiece.pc.in">
+			<Option virtualFolder="CMake Files\src\3rd_party\sentencepiece\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\3rd_party\sentencepiece\src\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/build_info.cpp.in">
+			<Option virtualFolder="CMake Files\src\common\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/src/common/project_version.h.in">
+			<Option virtualFolder="CMake Files\src\common\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake/FindMKL.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake/FindSSE.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake/FindTcmalloc.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake/GetCacheVariables.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/cepin/parapharses_marian/marian-constraints/cmake/GetVersionFromFile.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

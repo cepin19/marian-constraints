@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+054dbacf449ab844f9647b0bb0888831 ../src/common/git_revision.h
+a343f04207e46fe6065b1e050f4719ce src/3rd_party/sentencepiece/src/sentencepiece.pb.h
+081a24a17539d5a71584cd0a4215d789 src/3rd_party/sentencepiece/src/sentencepiece_model.pb.h
+f943ecd56c6c61e5c607cb147a5cf825 src/CMakeFiles/marian_version

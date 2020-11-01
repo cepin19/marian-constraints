@@ -1,0 +1,101 @@
+/snap/clion/129/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCOMPILE_CUDA=off -DCOMPILE_SERVER=off -DUSE_SENTENCEPIECE=on -DUSE_CCACHE=on -G "CodeBlocks - Unix Makefiles" /home/cepin/parapharses_marian/marian-constraints/src
+CMake Warning (dev) in CMakeLists.txt:
+  No project() command is present.  The top-level CMakeLists.txt file must
+  contain a literal, direct call to the project() command.  Add a line of
+  code such as
+
+    project(ProjectName)
+
+  near the top of the file, but after cmake_minimum_required().
+
+  CMake is pretending there is a "project(Project)" command on the first
+  line.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc - works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ - works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Warning (dev) at 3rd_party/CMakeLists.txt:10 (add_subdirectory):
+  The source directory
+
+    /home/cepin/parapharses_marian/marian-constraints/src/3rd_party/intgemm
+
+  does not contain a CMakeLists.txt file.
+
+  CMake does not support this case but it used to work accidentally and is
+  being allowed for compatibility.
+
+  Policy CMP0014 is not set: Input directories must have CMakeLists.txt.  Run
+  "cmake --help-policy CMP0014" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at 3rd_party/CMakeLists.txt:63 (add_subdirectory):
+  The source directory
+
+    /home/cepin/parapharses_marian/marian-constraints/src/3rd_party/sentencepiece
+
+  does not contain a CMakeLists.txt file.
+
+  CMake does not support this case but it used to work accidentally and is
+  being allowed for compatibility.
+
+  Policy CMP0014 is not set: Input directories must have CMakeLists.txt.  Run
+  "cmake --help-policy CMP0014" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Error at 3rd_party/CMakeLists.txt:66 (set_target_properties):
+  set_target_properties Can not find target to add properties to: spm_encode
+
+
+CMake Error at CMakeLists.txt:122 (file):
+  file failed to open for reading (No such file or directory):
+
+    /home/cepin/parapharses_marian/marian-constraints/src/.git
+
+
+CMake Error at CMakeLists.txt:123 (string):
+  string sub-command REGEX, mode REPLACE needs at least 6 arguments total to
+  command.
+
+
+CMake Warning (dev) at CMakeLists.txt:127 (add_custom_command):
+  Syntax error in cmake code at
+
+    /home/cepin/parapharses_marian/marian-constraints/src/CMakeLists.txt:129
+
+  when parsing string
+
+    --pretty=format:\#define\ GIT_REVISION\ \"\%h\ \%ai\"
+
+  Invalid escape sequence \%
+
+  Policy CMP0010 is not set: Bad variable reference syntax is an error.  Run
+  "cmake --help-policy CMP0010" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  No cmake_minimum_required command is present.  A line of code such as
+
+    cmake_minimum_required(VERSION 3.17)
+
+  should be added at the top of the file.  The version specified may be lower
+  if you wish to support older CMake versions for this project.  For more
+  information run "cmake --help-policy CMP0000".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring incomplete, errors occurred!
+See also "/home/cepin/parapharses_marian/marian-constraints/src/cmake-build-debug/CMakeFiles/CMakeOutput.log".
