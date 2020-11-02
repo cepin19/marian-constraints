@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <unordered_map>
+#include "3rd_party/yaml-cpp/yaml.h"
+
 using namespace std;
 /*
 // A Trie node
@@ -211,6 +213,7 @@ private:
   std::string paraphrasePath_;
     bool constraintsModifySoftmax=false;
     float constraintBonus_;
+    bool multiTokenConstraint_;
 
     float paraphraseProb_;
   bool paraphrase_ = false;
@@ -227,6 +230,7 @@ public:
         paraphrasePath_(options_->get<std::string>("negative-constraints")),
         constraintsModifySoftmax(options_->get<bool>("constraints-modify-scores")),
         constraintBonus_(options_->get<float>("constraint-bonus")),
+        multiTokenConstraint_(options_->get<bool>("multi-token-constraint")),
         paraphraseProb_(options_->get<float>("negative-constraint-probability"))
          {
           if (options_->get<std::string>("negative-constraints") != "") {
@@ -250,9 +254,29 @@ public:
 
       first = std::next(second);
     }
-} 
-  
-  Beams filterForParaphrases(const Beams& beams, std::unordered_set<Word>& vocabIDs) {
+}
+
+
+    void tokenizeAndConvertToVocabIDsMulti(std::string& str, std::unordered_set<Word>& output) {
+        static const std::string delimeterSubword = "▁";
+        static const std::string delimeter = " ";
+        auto first = std::begin(str);
+
+        while (first != str.end()) {
+            const auto second = std::find_first_of(first, std::end(str), std::begin(delimeter), std::end(delimeter));
+
+            if (first != second) {
+                output.insert((*trgVocab_)[str.substr(std::distance(std::begin(str), first), std::distance(first, second))]);
+            }
+
+            if (second == str.end())
+                break;
+
+            first = std::next(second);
+        }
+    }
+
+    Beams filterForParaphrases(const Beams& beams, std::unordered_set<Word>& vocabIDs) {
     Beams newBeams;
     ABORT_IF(beams.size() > 1, "Batched decoding not yet supported");
     for(auto beam : beams) {
@@ -271,6 +295,7 @@ public:
     }
     return newBeams;
   }
+
 
   // combine new expandedPathScores and previous beams into new set of beams
   Beams toHyps(const std::vector<unsigned int>& nBestKeys, // [currentDimBatch, beamSize] flattened -> ((batchIdx, beamHypIdx) flattened, word idx) flattened
@@ -515,19 +540,59 @@ public:
   Histories search(Ptr<ExpressionGraph> graph, Ptr<data::CorpusBatch> batch) {
     //Get the vocabulary IDs from the decode text file
     std::unordered_set<Word> vocabIDsent;
-    if (paraphrase_) {
+      std::vector<std::vector<int>> multiTokenIdsTracker;
+      std::vector<std::vector<Word>> multiTokenIds;
+      /*std::vector<std::vector<Word>> multiTokenIds;
+
+     std::vector<std::vector<int>> multiTokenIdsTracker; //beamSize, numConstraints
+      std::vector<Word> tmp;
+     for (std::string s:{"▁da","s", "d"}) {
+         tmp.push_back((*trgVocab_)[s]);
+     }
+     multiTokenIds.push_back(tmp);
+
+     tmp.clear();
+       for (std::string s:{"▁s", "d","fa","s"}) {
+           tmp.push_back((*trgVocab_)[s]);
+       }
+       multiTokenIds.push_back(tmp);
+       for (int b=0;b<12;b++){
+           multiTokenIdsTracker.push_back(std::vector<int>{-1,-1});
+       }
+ */
+      if (paraphrase_ and !multiTokenConstraint_) {
       static std::ifstream goldtrans(options_->get<std::string>("negative-constraints"));
       std::string line;
       std::vector<std::string> num_tokens;
       std::getline(goldtrans, line);
       tokenizeAndConvertToVocabIDs(line, vocabIDsent);
-      //std::cout << "neg:" << line <<std::endl;
-      LOG(info, "neg: {} ", line);
+     //   tokenizeAndConvertToVocabIDsMulti(line, vocabIDsent);
+
+        //std::cout << "neg:" << line <<std::endl;
+      //LOG(info, "neg: {} ", line);
       for (auto id:vocabIDsent){
           std::cerr<<id.toWordIndex()<<","<<std::endl;
       }
 
     }
+
+      if (paraphrase_ and multiTokenConstraint_) {
+          YAML::Node constraints = YAML::LoadFile(options_->get<std::string>("negative-constraints"));
+          std::vector<std::vector<std::string>> constraintsString = constraints.as<std::vector<std::vector<std::string>>>();
+          std::vector<Word> singleConstraint;
+          for (auto constraint:constraintsString){
+
+              for (auto s:constraint){
+
+                  singleConstraint.push_back((*trgVocab_)[s]);
+              }
+              multiTokenIds.push_back(singleConstraint);
+              }
+
+          std::vector<std::vector<int>> v(12, std::vector<int>(multiTokenIds.size(), -1));
+          multiTokenIdsTracker=v;
+
+      }
 
     auto factoredVocab = trgVocab_->tryAs<FactoredVocab>();
 #if 0   // use '1' here to disable factored decoding, e.g. for comparisons
@@ -783,8 +848,48 @@ public:
                        factoredVocab, factorGroup,
                        emptyBatchEntries, // [origDimBatch] - empty source batch entries are marked with true
                        batchIdxMap); // used to create a reverse batch index map to recover original batch indices for this step
-        if (paraphrase_ && !constraintsModifySoftmax){
+        if (paraphrase_ && !constraintsModifySoftmax && !multiTokenConstraint_) {
           beams = filterForParaphrases(beams, vocabIDsent);
+        }
+        if (multiTokenConstraint_){
+
+            Beams newBeams;
+            ABORT_IF(beams.size() > 1, "Batched decoding not yet supported");
+            size_t bi=0;
+
+            for(auto beam : beams) {
+                Beam newBeam;
+                for (auto newhyp : beam) {
+                    bool constraintMet=false;
+
+//                    float score = newhyp->getLastWordScore();
+                    //LOG(info,"newhyp word in beam {}: {}, {}",bi,newhyp->getWord().toString(),score);
+                    for (size_t constraintId=0;constraintId<multiTokenIds.size();constraintId++) {
+                        if (multiTokenIds[constraintId][multiTokenIdsTracker[bi][constraintId]+1]==newhyp->getWord()) { // continue the constraint
+                            multiTokenIdsTracker[bi][constraintId]++;
+                        } else
+                        {
+                            multiTokenIdsTracker[bi][constraintId]=-1;
+
+                        }
+                        if (multiTokenIdsTracker[bi][constraintId]==multiTokenIds[constraintId].size()-1) {
+                            constraintMet=true;
+                        }
+                    }
+                    if (constraintMet) {
+                        auto unkhyp = Hypothesis::New();
+                        auto unk = trgVocab_->getUnkId();
+                        newBeam.push_back(Hypothesis::New(unkhyp, unk, 0, -9999.0f));
+                    } else {
+                        newBeam.push_back(newhyp);
+                    }
+                    bi++;
+
+                }
+                newBeams.push_back(newBeam);
+            }
+            beams= newBeams;
+
         }
       } // END FOR factorGroup = 0 .. numFactorGroups-1
 

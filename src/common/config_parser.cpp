@@ -629,6 +629,8 @@ void ConfigParser::addOptionsTranslation(cli::CLIWrapper& cli) {
      "add bonus/penalty to scores of the contrained tokens instead of filtering beams");
     cli.add<float>("--constraint-bonus",
      "Bonus/penalty(for negative numbers) for tokens in constraints list", -99999.f);
+    cli.add<bool>("--multi-token-constraint",
+                   "Multi token constraint in yaml format", false);
 
   cli.add<float>("--negative-constraint-probability",
      "Blacklist the token from constraints if it's probability is lower than this number.", -0.2f);

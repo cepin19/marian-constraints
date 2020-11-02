@@ -62,4 +62,4 @@ examples/mnist/*ubyte
 
 .vs
 .vscode
-
+cmake-build-debug/
