@@ -541,6 +541,7 @@ public:
     //Get the vocabulary IDs from the decode text file
     std::unordered_set<Word> vocabIDsent;
       std::vector<std::vector<int>> multiTokenIdsTracker;
+      std::vector<std::vector<float>> multiTokenScoreTracker;
       std::vector<std::vector<Word>> multiTokenIds;
       /*std::vector<std::vector<Word>> multiTokenIds;
 
@@ -581,17 +582,20 @@ public:
           std::vector<std::vector<std::string>> constraintsString = constraints.as<std::vector<std::vector<std::string>>>();
           std::vector<Word> singleConstraint;
           for (auto constraint:constraintsString){
+              std::cerr << "new constraint" << std::endl;
 
               for (auto s:constraint){
-
+                    std::cerr << "adding " << s << std::endl;
                   singleConstraint.push_back((*trgVocab_)[s]);
               }
               multiTokenIds.push_back(singleConstraint);
+              singleConstraint.clear();
               }
 
           std::vector<std::vector<int>> v(12, std::vector<int>(multiTokenIds.size(), -1));
           multiTokenIdsTracker=v;
-
+          std::vector<std::vector<float>> v1(12, std::vector<float>(multiTokenIds.size(), 0));
+          multiTokenScoreTracker=v1;
       }
 
     auto factoredVocab = trgVocab_->tryAs<FactoredVocab>();
@@ -862,18 +866,23 @@ public:
                 for (auto newhyp : beam) {
                     bool constraintMet=false;
 
-//                    float score = newhyp->getLastWordScore();
+                    //float score = newhyp->getLastWordScore();
                     //LOG(info,"newhyp word in beam {}: {}, {}",bi,newhyp->getWord().toString(),score);
                     for (size_t constraintId=0;constraintId<multiTokenIds.size();constraintId++) {
                         if (multiTokenIds[constraintId][multiTokenIdsTracker[bi][constraintId]+1]==newhyp->getWord()) { // continue the constraint
                             multiTokenIdsTracker[bi][constraintId]++;
+                            multiTokenScoreTracker[bi][constraintId]+=newhyp->getLastWordScore();
+
+
                         } else
                         {
                             multiTokenIdsTracker[bi][constraintId]=-1;
+                            multiTokenScoreTracker[bi][constraintId]=0;
 
                         }
-                        if (multiTokenIdsTracker[bi][constraintId]==multiTokenIds[constraintId].size()-1) {
+                        if ((multiTokenIdsTracker[bi][constraintId]==multiTokenIds[constraintId].size()-1) and multiTokenScoreTracker[bi][constraintId]<paraphraseProb_) {
                             constraintMet=true;
+                            break;
                         }
                     }
                     if (constraintMet) {
