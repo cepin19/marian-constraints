@@ -55,6 +55,9 @@ const std::string DEFAULT_UNK_STR = "<unk>";
 const std::string NEMATUS_EOS_STR = "eos";
 const std::string NEMATUS_UNK_STR = "UNK";
 
+
+
+
 }  // namespace marian
 
 namespace std {

@@ -18,188 +18,11 @@
 #include "3rd_party/yaml-cpp/yaml.h"
 
 using namespace std;
-/*
-// A Trie node
-struct Trie
-{
-    // true when node is a leaf node
-    bool isLeaf;
-
-    // each node stores a map to its child nodes
-    unordered_map<char, Trie*> map;
-};
-
-// Function that returns a new Trie node
-Trie* getNewTrieNode()
-{
-    Trie* node = new Trie;
-    node->isLeaf = false;
-
-    return node;
-}
-
-// Iterative function to insert a string in Trie.
-void insert(Trie*& head, char* str)
-{
-    if (head == nullptr)
-        head = getNewTrieNode();
-
-    // start from root node
-    Trie* curr = head;
-    while (*str)
-    {
-        // create a new node if path doesn't exists
-        if (curr->map.find(*str) == curr->map.end())
-            curr->map[*str] = getNewTrieNode();
-
-        // go to next node
-        curr = curr->map[*str];
-
-        // move to next character
-        str++;
-    }
-
-    // mark current node as leaf
-    curr->isLeaf = true;
-}
-
-// returns true if given node has any children
-bool haveChildren(Trie const* curr)
-{
-    // don't use (curr->map).size() to check for children
-
-    for (auto it : curr->map)
-        if (it.second != nullptr)
-            return true;
-
-    return false;
-}
-
-// Recursive function to delete a string in Trie.
-bool deletion(Trie*& curr, char* str)
-{
-    // return if Trie is empty
-    if (curr == nullptr)
-        return false;
-
-    // if we have not reached the end of the string
-    if (*str)
-    {
-        // recur for the node corresponding to next character in
-        // the string and if it returns true, delete current node
-        // (if it is non-leaf)
-        if (curr != nullptr &&  curr->map.find(*str) != curr->map.end() &&
-            deletion(curr->map[*str], str + 1) && curr->isLeaf == false)
-        {
-            if (!haveChildren(curr))
-            {
-                delete curr;;
-                curr = nullptr;
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-    }
-
-    // if we have reached the end of the string
-    if (*str == '\0' && curr->isLeaf)
-    {
-        // if current node is a leaf node and don't have any children
-        if (!haveChildren(curr))
-        {
-            delete curr;; // delete current node
-            curr = nullptr;
-            return true; // delete non-leaf parent nodes
-        }
-
-            // if current node is a leaf node and have children
-        else
-        {
-            // mark current node as non-leaf node (DON'T DELETE IT)
-            curr->isLeaf = false;
-            return false;	   // don't delete its parent nodes
-        }
-    }
-
-    return false;
-}
-
-// Iterative function to search a string in Trie. It returns true
-// if the string is found in the Trie, else it returns false
-bool search(Trie* head, char* str)
-{
-    // return false if Trie is empty
-    if (head == nullptr)
-        return false;
-
-    Trie* curr = head;
-    while (*str)
-    {
-        // go to next node
-        curr = curr->map[*str];
-
-        // if string is invalid (reached end of path in Trie)
-        if (curr == nullptr)
-            return false;
-
-        // move to next character
-        str++;
-    }
-
-    // if current node is a leaf and we have reached the
-    // end of the string, return true
-    return curr->isLeaf;
-}
 
 
-
-// Memory efficient Trie Implementation in C++ using Map
-int main()
-{
-    Trie* head = nullptr;
-
-    insert(head, "hello");
-    cout << search(head, "hello") << " ";   	// print 1
-
-    insert(head, "helloworld");
-    cout << search(head, "helloworld") << " ";  // print 1
-
-    cout << search(head, "helll") << " ";   	// print 0 (Not present)
-
-    insert(head, "hell");
-    cout << search(head, "hell") << " ";		// print 1
-
-    insert(head, "h");
-    cout << search(head, "h") << endl;  		// print 1 + newline
-
-    deletion(head, "hello");
-    cout << search(head, "hello") << " ";   	// print 0 (hello deleted)
-    cout << search(head, "helloworld") << " ";  // print 1
-    cout << search(head, "hell") << endl;   	// print 1 + newline
-
-    deletion(head, "h");
-    cout << search(head, "h") << " ";   		// print 0 (h deleted)
-    cout << search(head, "hell") << " ";		// print 1
-    cout << search(head, "helloworld") << endl; // print 1 + newline
-
-    deletion(head, "helloworld");
-    cout << search(head, "helloworld") << " ";  // print 0
-    cout << search(head, "hell") << " ";		// print 1
-
-    deletion(head, "hell");
-    cout << search(head, "hell") << endl;   	// print 0 + newline
-
-    if (head == nullptr)
-        cout << "Trie empty!!\n";   			// Trie is empty now
-
-    cout << search(head, "hell");   			// print 0
-
-    return 0;
-}*/
 
 namespace marian {
+
 
 class BeamSearch {
 private:
@@ -314,7 +137,16 @@ public:
 
     const auto origDimBatch = beams.size(); // see function search for definition of origDimBatch and currentDimBatch etc.
     Beams newBeams(origDimBatch);           // return value of this function goes here. There are always origDimBatch beams.
+    //copy tries
 
+  /*  for (size_t batch_i=0;batch_i<origDimBatch;batch_i++){
+        for (size_t bi=0;bi<beams[batch_i].size();bi++){
+            std::cerr<<"copying states from" << batch_i << " " << bi<<std::endl;
+
+            newBeams[batch_i][bi]->constraintTrieRoot=beams[batch_i][bi]->constraintTrieRoot;
+            newBeams[batch_i][bi]->constraintTrieStates=beams[batch_i][bi]->constraintTrieStates;
+        }
+    }*/
     // create a reverse batchMap to obtain original batchIdx in the starting batch size
     // and calculate the current batch size based on non-empty beams
     std::vector<IndexType> reverseBatchIdxMap; // empty if not purging batch entries
@@ -409,7 +241,8 @@ public:
         word = Word::fromWordIndex(wordIdx);
 
       auto hyp = Hypothesis::New(prevHyp, word, prevBeamHypIdx, pathScore);
-
+        hyp->constraintTrieRoot=prevHyp->constraintTrieRoot;
+        hyp->constraintTrieStates=prevHyp->constraintTrieStates;
       // Set score breakdown for n-best lists
       if(options_->get<bool>("n-best")) {
         auto breakDown = beam[beamHypIdx]->getScoreBreakdown();
@@ -576,27 +409,53 @@ public:
       }
 
     }
+      std::vector<Trie*> constraintTries;
+      std::vector<std::vector<Trie*>> constraintTriesActiveNodes; //multiple active states for each beam, TODO add batch dimension
 
       if (paraphrase_ and multiTokenConstraint_) {
           YAML::Node constraints = YAML::LoadFile(options_->get<std::string>("negative-constraints"));
           std::vector<std::vector<std::string>> constraintsString = constraints.as<std::vector<std::vector<std::string>>>();
           std::vector<Word> singleConstraint;
+        /*  for (int i=0;i<12;i++) {
+
+              constraintTriesActiveNodes.push_back(std::vector<Trie*>{});
+                Trie* head=nullptr;
+              for (auto constraint:constraintsString){
+                  std::cerr << "new constraint" << std::endl;
+                  for (auto s:constraint){
+                      std::cerr << "adding " << s << " id: "<< (*trgVocab_)[s].toString() << std::endl;
+                      singleConstraint.push_back((*trgVocab_)[s]);
+                  }
+                  insert(head, singleConstraint);
+                  }
+              constraintTries.push_back(head);
+              constraintTriesActiveNodes[i].push_back(head);
+
+          }*/
           for (auto constraint:constraintsString){
               std::cerr << "new constraint" << std::endl;
 
               for (auto s:constraint){
-                    std::cerr << "adding " << s << std::endl;
+                    std::cerr << "adding " << s << " id: "<< (*trgVocab_)[s].toString() << std::endl;
                   singleConstraint.push_back((*trgVocab_)[s]);
+              }
+              for (auto head:constraintTries) {
+                  insert(head, singleConstraint);
               }
               multiTokenIds.push_back(singleConstraint);
               singleConstraint.clear();
               }
+
+
 
           std::vector<std::vector<int>> v(12, std::vector<int>(multiTokenIds.size(), -1));
           multiTokenIdsTracker=v;
           std::vector<std::vector<float>> v1(12, std::vector<float>(multiTokenIds.size(), 0));
           multiTokenScoreTracker=v1;
       }
+
+
+
 
     auto factoredVocab = trgVocab_->tryAs<FactoredVocab>();
 #if 0   // use '1' here to disable factored decoding, e.g. for comparisons
@@ -633,11 +492,45 @@ public:
     }
 
     // create one beam per batch entry with sentence-start hypothesis
-    Beams beams(origDimBatch, Beam(beamSize_, Hypothesis::New())); // array [origDimBatch] of array [maxBeamSize] of Hypothesis, keeps full size through search.
+   //Beams beams(origDimBatch, Beam(beamSize_, Hypothesis::New())); // array [origDimBatch] of array [maxBeamSize] of Hypothesis, keeps full size through search.
                                                                    // batch purging is determined from an empty sub-beam.
+
     std::vector<IndexType> batchIdxMap(origDimBatch); // Record at which batch entry a beam is looking.
                                                       // By default that corresponds to position in array,
-                                                      // but shifts in the course of removing batch entries when they are finished.
+                                                      // but shifts in the course of removing batch entries when they are finished
+      YAML::Node constraints = YAML::LoadFile(options_->get<std::string>("negative-constraints"));
+      std::vector<std::vector<std::string>> constraintsString = constraints.as<std::vector<std::vector<std::string>>>();
+      std::vector<Word> singleConstraint;
+      Beams beams;
+
+      for (size_t batch_i=0;batch_i<origDimBatch;batch_i++){
+          Beam newBeam;
+        for (size_t bi=0;bi<beamSize_;bi++){
+            auto hyp=Hypothesis::New();
+            std::cerr << "new hyp" << std::endl;
+            //constraintTrieState.clear();
+            //tohle by melo pak byt v konstruktoru Beam moznoa
+            //hyp->constraintTrieStates.push_back();
+            std::vector<marian::Trie*>constraintTrieState;
+
+            Trie* head=nullptr;
+            for (auto constraint:constraintsString){
+                std::cerr << "new constraint" << std::endl;
+                for (auto s:constraint){
+                    std::cerr << "adding " << s << " id: "<< (*trgVocab_)[s].toString() << std::endl;
+                    singleConstraint.push_back((*trgVocab_)[s]);
+                }
+                insert(head, singleConstraint);
+                singleConstraint.clear();
+            }
+            hyp->constraintTrieRoot=head;
+            hyp->constraintTrieStates.push_back(head);//=constraintTrieState;
+            newBeam.push_back(hyp);
+
+        }
+        beams.push_back(newBeam);
+
+    }
 
     const std::vector<bool> emptyBatchEntries; // used for recording if there are empty input batch entries
     for(int origBatchIdx = 0; origBatchIdx < origDimBatch; ++origBatchIdx) {
@@ -673,6 +566,7 @@ public:
     auto prevBatchIdxMap = batchIdxMap; // [origBatchIdx -> currentBatchIdx] but shifted by one time step
     // main loop over output time steps
     for (size_t t = 0; ; t++) {
+        std::cerr << "TIMESTEP " << t << std::endl;
       ABORT_IF(origDimBatch != beams.size(), "Lost a batch entry??");
       // determine beam size for next output time step, as max over still-active sentences
       // E.g. if all batch entries are down from beam 5 to no more than 4 surviving hyps, then
@@ -756,16 +650,49 @@ public:
         //**********************************************************************
         // compute expanded path scores with word prediction probs from all scorers
         auto expandedPathScores = prevPathScores; // will become [maxBeamSize, 1, currDimBatch, dimVocab]
+        if (t==13){
+            std::cerr<<"omfg its THE timestep!! It's happening NOW!" << std::endl;
+        }
         Expr logProbs;
           Expr nc;
           if (constraintsModifySoftmax ) {
               std::vector<float> neg_mask(32000,0.0);
               for (auto w:vocabIDsent) {
                   //std::cerr<<w.toWordIndex()<<std::endl;
-                  neg_mask[w.toWordIndex()] = constraintBonus_;
+                  neg_mask[w.toWordIndex()] = 0; //MOVE BACK constraintBonus_;
                   nc= graph->constant({1, 1, (int)currentDimBatch, 32000}, inits::fromVector(neg_mask));
 
               }
+          }
+          bool trieConstraint=true;
+          if (trieConstraint){
+              std::vector<float> neg_mask(32000,0.0);
+              for (auto b: beams){
+                  for (auto hyp:b){
+                      for (auto active:hyp->constraintTrieStates){
+                          for (auto id:active->finalIds){
+                              // if (id.toString()=="1082"){
+                              std::cerr << "FINAL ID!!" << id.toString() << std::endl;//}
+                              neg_mask[id.toWordIndex()] = -1000.0;
+                          }
+
+                  }
+              }
+              }
+
+              //here I need to make a mask with different values for each beam
+/*
+              for (int i=0;i<constraintTriesActiveNodes.size();i++) {
+                  for (auto active: constraintTriesActiveNodes[i]){
+                      for (auto id:active->finalIds){
+                         // if (id.toString()=="1082"){
+                     std::cerr << "FINAL ID!!" << id.toString() << std::endl;//}
+                      neg_mask[id.toWordIndex()] = -1000.0;
+                      }
+                  }
+              }
+              */
+              nc= graph->constant({1, 1, (int)currentDimBatch, 32000}, inits::fromVector(neg_mask));
           }
           for(size_t i = 0; i < scorers_.size(); ++i) {
           if (factorGroup == 0) {
@@ -790,7 +717,7 @@ public:
               auto shortlist = scorers_[i]->getShortlist();
               logProbs = states[i]->getLogProbs().getFactoredLogits(factorGroup); // [maxBeamSize, 1, currentDimBatch, dimVocab]
               //debug(logProbs,"logProbs");
-              if (constraintsModifySoftmax) {
+              if (constraintsModifySoftmax or trieConstraint) {
                     logProbs=logProbs+nc;
                   }
               //debug(logProbs,"logProbs");
@@ -852,9 +779,89 @@ public:
                        factoredVocab, factorGroup,
                        emptyBatchEntries, // [origDimBatch] - empty source batch entries are marked with true
                        batchIdxMap); // used to create a reverse batch index map to recover original batch indices for this step
+
         if (paraphrase_ && !constraintsModifySoftmax && !multiTokenConstraint_) {
           beams = filterForParaphrases(beams, vocabIDsent);
         }
+
+    /*    // rearange the active states in the trie or in the constraint list to be in sync with new beam indices
+          std::vector<Trie *> newConstraintTries;
+          std::vector<std::vector<Trie *>> newConstraintTriesActiveNodes;
+        for(auto beam : beams) {
+            size_t bi=0;
+            for (auto newhyp : beam){
+                Trie *headCopy=new Trie;
+                *headCopy=*constraintTries[newhyp->getPrevStateIndex()];
+                std::vector<Trie *> activeCopy;
+                for (auto at:constraintTriesActiveNodes[newhyp->getPrevStateIndex()]){
+                    Trie *atCopy=new Trie;
+                    *atCopy=*at;
+                }
+
+                //Trie *headCopyPointer=&headCopy;
+                //std::vector<Trie *> activeCopy=constraintTriesActiveNodes[newhyp->getPrevStateIndex()];
+                newConstraintTries.push_back(headCopy);
+                newConstraintTriesActiveNodes.push_back(activeCopy);
+                std::cerr << "changing pointer for beam " << bi << " to" << newhyp->getPrevStateIndex() << std::endl;
+                bi++;
+            }
+
+        }
+        constraintTries=newConstraintTries;
+        constraintTriesActiveNodes=newConstraintTriesActiveNodes;
+*/
+
+          for(auto beam : beams) {
+              size_t bi=0;
+
+              for (auto newhyp : beam) {
+                  std::cerr<< "beam" <<bi <<"generating " << newhyp->getWord().toString() << std::endl;
+                  if(newhyp->getWord().toString() == "1802") {
+                      std::cerr<<"ok, here we go" <<std::endl;
+                  }
+                  size_t active_i=0;
+                  for (auto &active: newhyp-> constraintTrieStates) {
+                      bool updated=false;
+                      if (haveChildren(active)) {
+
+                          for (auto &child:active->map) {
+                              if(newhyp->getWord().toString() == "1802") {
+                                  std::cerr<<"ok, here we go" <<std::endl;
+                              }
+                              std::cerr<< "child word " << child.first.toString() <<std::endl;
+                                if (newhyp->getWord()==child.first){
+                                    newhyp-> constraintTrieStates.erase(std::remove(newhyp-> constraintTrieStates.begin(), newhyp-> constraintTrieStates.end(), active), newhyp-> constraintTrieStates.end());
+                                    newhyp-> constraintTrieStates.push_back(child.second);
+                                     std::cerr << "WOOOHOO, step to"  <<child.first.toString()<< "in beam "<< bi<< std::endl;
+                                    updated=true;
+                                    break;
+                                }
+                          }
+                          if (!updated and active!=newhyp->constraintTrieRoot){
+                              //reset to head, BUT WAIT!!! HEAD IS ALWAYAS VALID STATE!!!!! WE NEED MULTIPLE ACTIVE STATES!!!! I KNEW IT!!!
+                              // SO I SHOULD ONLY DELETE/ADD STATES, NOT SET THEM111
+                              //constraintTriesActiveNodes[bi]=constraintTries[bi];
+                              std::cerr << "deleting:" ;
+                              for (auto &child:active->map) {
+                                  std::cerr << child.first.toString();
+
+                              }
+                              if(newhyp->getWord().toString() == "1802" or newhyp->getWord().toString() == "12961") {
+                                  std::cerr <<"BUT WHY????";
+
+                              }
+                              std::cerr<<std::endl;
+                              std::remove(newhyp-> constraintTrieStates.begin(), newhyp-> constraintTrieStates.end(), active);
+                              //newhyp->constraintTrieStates.erase(newhyp->constraintTrieStates.begin()+active_i);
+                              //newhyp-> constraintTrieStates.erase(std::remove(newhyp-> constraintTrieStates.begin(), newhyp-> constraintTrieStates.end(), active), newhyp-> constraintTrieStates.end());
+                          }
+                      }
+                      active_i++;
+                  }
+                  bi++;
+              }
+          }
+            //update the states for each beam based on generated word here
         if (multiTokenConstraint_){
 
             Beams newBeams;
@@ -900,6 +907,7 @@ public:
             beams= newBeams;
 
         }
+
       } // END FOR factorGroup = 0 .. numFactorGroups-1
 
       prevBatchIdxMap = batchIdxMap; // save current batchIdx map to be used in next step; we are then going to look one step back
