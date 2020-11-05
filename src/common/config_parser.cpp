@@ -631,7 +631,8 @@ void ConfigParser::addOptionsTranslation(cli::CLIWrapper& cli) {
      "Bonus/penalty(for negative numbers) for tokens in constraints list", -99999.f);
     cli.add<bool>("--multi-token-constraint",
                    "Multi token constraint in yaml format", false);
-
+    cli.add<bool>("--trie-constraint",
+                  "Trie constraint", false);
   cli.add<float>("--negative-constraint-probability",
      "Blacklist the token from constraints if it's probability is lower than this number.", -0.2f);
 

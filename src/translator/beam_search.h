@@ -37,6 +37,7 @@ private:
     bool constraintsModifySoftmax=false;
     float constraintBonus_;
     bool multiTokenConstraint_;
+    bool trieConstraint_;
 
     float paraphraseProb_;
   bool paraphrase_ = false;
@@ -54,8 +55,10 @@ public:
         constraintsModifySoftmax(options_->get<bool>("constraints-modify-scores")),
         constraintBonus_(options_->get<float>("constraint-bonus")),
         multiTokenConstraint_(options_->get<bool>("multi-token-constraint")),
+        trieConstraint_(options_->get<bool>("trie-constraint")),
         paraphraseProb_(options_->get<float>("negative-constraint-probability"))
-         {
+
+    {
           if (options_->get<std::string>("negative-constraints") != "") {
             paraphrase_ = true;
           }
@@ -664,8 +667,7 @@ public:
 
               }
           }
-          bool trieConstraint=true;
-          if (trieConstraint){
+          if (trieConstraint_){
               std::vector<float> neg_mask(32000,0.0);
               for (auto b: beams){
                   for (auto hyp:b){
@@ -717,7 +719,7 @@ public:
               auto shortlist = scorers_[i]->getShortlist();
               logProbs = states[i]->getLogProbs().getFactoredLogits(factorGroup); // [maxBeamSize, 1, currentDimBatch, dimVocab]
               //debug(logProbs,"logProbs");
-              if (constraintsModifySoftmax or trieConstraint) {
+              if (constraintsModifySoftmax or trieConstraint_) {
                     logProbs=logProbs+nc;
                   }
               //debug(logProbs,"logProbs");
@@ -810,59 +812,66 @@ public:
         constraintTries=newConstraintTries;
         constraintTriesActiveNodes=newConstraintTriesActiveNodes;
 */
+          if (trieConstraint_) {
+              for (auto beam : beams) {
+                  size_t bi = 0;
 
-          for(auto beam : beams) {
-              size_t bi=0;
-
-              for (auto newhyp : beam) {
-                  std::cerr<< "beam" <<bi <<"generating " << newhyp->getWord().toString() << std::endl;
-                  if(newhyp->getWord().toString() == "1802") {
-                      std::cerr<<"ok, here we go" <<std::endl;
-                  }
-                  size_t active_i=0;
-                  for (auto &active: newhyp-> constraintTrieStates) {
-                      bool updated=false;
-                      if (haveChildren(active)) {
-
-                          for (auto &child:active->map) {
-                              if(newhyp->getWord().toString() == "1802") {
-                                  std::cerr<<"ok, here we go" <<std::endl;
-                              }
-                              std::cerr<< "child word " << child.first.toString() <<std::endl;
-                                if (newhyp->getWord()==child.first){
-                                    newhyp-> constraintTrieStates.erase(std::remove(newhyp-> constraintTrieStates.begin(), newhyp-> constraintTrieStates.end(), active), newhyp-> constraintTrieStates.end());
-                                    newhyp-> constraintTrieStates.push_back(child.second);
-                                     std::cerr << "WOOOHOO, step to"  <<child.first.toString()<< "in beam "<< bi<< std::endl;
-                                    updated=true;
-                                    break;
-                                }
-                          }
-                          if (!updated and active!=newhyp->constraintTrieRoot){
-                              //reset to head, BUT WAIT!!! HEAD IS ALWAYAS VALID STATE!!!!! WE NEED MULTIPLE ACTIVE STATES!!!! I KNEW IT!!!
-                              // SO I SHOULD ONLY DELETE/ADD STATES, NOT SET THEM111
-                              //constraintTriesActiveNodes[bi]=constraintTries[bi];
-                              std::cerr << "deleting:" ;
-                              for (auto &child:active->map) {
-                                  std::cerr << child.first.toString();
-
-                              }
-                              if(newhyp->getWord().toString() == "1802" or newhyp->getWord().toString() == "12961") {
-                                  std::cerr <<"BUT WHY????";
-
-                              }
-                              std::cerr<<std::endl;
-                              std::remove(newhyp-> constraintTrieStates.begin(), newhyp-> constraintTrieStates.end(), active);
-                              //newhyp->constraintTrieStates.erase(newhyp->constraintTrieStates.begin()+active_i);
-                              //newhyp-> constraintTrieStates.erase(std::remove(newhyp-> constraintTrieStates.begin(), newhyp-> constraintTrieStates.end(), active), newhyp-> constraintTrieStates.end());
-                          }
+                  for (auto newhyp : beam) {
+                      std::cerr << "beam" << bi << "generating " << newhyp->getWord().toString() << std::endl;
+                      if (newhyp->getWord().toString() == "1802") {
+                          std::cerr << "ok, here we go" << std::endl;
                       }
-                      active_i++;
+                      size_t active_i = 0;
+                      for (auto &active: newhyp->constraintTrieStates) {
+                          bool updated = false;
+                          if (haveChildren(active)) {
+
+                              for (auto &child:active->map) {
+                                  if (newhyp->getWord().toString() == "1802") {
+                                      std::cerr << "ok, here we go" << std::endl;
+                                  }
+                                  std::cerr << "child word " << child.first.toString() << std::endl;
+                                  if (newhyp->getWord() == child.first) {
+                                      newhyp->constraintTrieStates.erase(
+                                              std::remove(newhyp->constraintTrieStates.begin(),
+                                                          newhyp->constraintTrieStates.end(), active),
+                                              newhyp->constraintTrieStates.end());
+                                      newhyp->constraintTrieStates.push_back(child.second);
+                                      std::cerr << "WOOOHOO, step to" << child.first.toString() << "in beam " << bi
+                                                << std::endl;
+                                      updated = true;
+                                      break;
+                                  }
+                              }
+                              if (!updated and active != newhyp->constraintTrieRoot) {
+                                  //reset to head, BUT WAIT!!! HEAD IS ALWAYAS VALID STATE!!!!! WE NEED MULTIPLE ACTIVE STATES!!!! I KNEW IT!!!
+                                  // SO I SHOULD ONLY DELETE/ADD STATES, NOT SET THEM111
+                                  //constraintTriesActiveNodes[bi]=constraintTries[bi];
+                                  std::cerr << "deleting:";
+                                  for (auto &child:active->map) {
+                                      std::cerr << child.first.toString();
+
+                                  }
+                                  if (newhyp->getWord().toString() == "1802" or
+                                      newhyp->getWord().toString() == "12961") {
+                                      std::cerr << "BUT WHY????";
+
+                                  }
+                                  std::cerr << std::endl;
+                                  std::remove(newhyp->constraintTrieStates.begin(), newhyp->constraintTrieStates.end(),
+                                              active);
+                                  //newhyp->constraintTrieStates.erase(newhyp->constraintTrieStates.begin()+active_i);
+                                  //newhyp-> constraintTrieStates.erase(std::remove(newhyp-> constraintTrieStates.begin(), newhyp-> constraintTrieStates.end(), active), newhyp-> constraintTrieStates.end());
+                              }
+                          }
+                          active_i++;
+                      }
+                      bi++;
                   }
-                  bi++;
               }
           }
             //update the states for each beam based on generated word here
-        if (multiTokenConstraint_){
+        if (multiTokenConstraint_ and !trieConstraint_){
 
             Beams newBeams;
             ABORT_IF(beams.size() > 1, "Batched decoding not yet supported");
