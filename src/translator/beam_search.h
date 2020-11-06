@@ -675,7 +675,7 @@ public:
                           for (auto id:active->finalIds){
                               // if (id.toString()=="1082"){
                               std::cerr << "FINAL ID!!" << id.toString() << std::endl;//}
-                              neg_mask[id.toWordIndex()] = -1000.0;
+                              neg_mask[id.toWordIndex()] = constraintBonus_;
                           }
 
                   }
@@ -832,10 +832,12 @@ public:
                                   }
                                   std::cerr << "child word " << child.first.toString() << std::endl;
                                   if (newhyp->getWord() == child.first) {
+                                      if (active!=newhyp->constraintTrieRoot){
                                       newhyp->constraintTrieStates.erase(
                                               std::remove(newhyp->constraintTrieStates.begin(),
                                                           newhyp->constraintTrieStates.end(), active),
                                               newhyp->constraintTrieStates.end());
+                                      }
                                       newhyp->constraintTrieStates.push_back(child.second);
                                       std::cerr << "WOOOHOO, step to" << child.first.toString() << "in beam " << bi
                                                 << std::endl;
@@ -858,10 +860,7 @@ public:
 
                                   }
                                   std::cerr << std::endl;
-                                  std::remove(newhyp->constraintTrieStates.begin(), newhyp->constraintTrieStates.end(),
-                                              active);
-                                  //newhyp->constraintTrieStates.erase(newhyp->constraintTrieStates.begin()+active_i);
-                                  //newhyp-> constraintTrieStates.erase(std::remove(newhyp-> constraintTrieStates.begin(), newhyp-> constraintTrieStates.end(), active), newhyp-> constraintTrieStates.end());
+                                  newhyp-> constraintTrieStates.erase(std::remove(newhyp-> constraintTrieStates.begin(), newhyp-> constraintTrieStates.end(), active), newhyp-> constraintTrieStates.end());
                               }
                           }
                           active_i++;
