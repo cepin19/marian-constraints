@@ -662,7 +662,7 @@ public:
               std::vector<float> neg_mask(32000,0.0);
               for (auto w:vocabIDsent) {
                   //std::cerr<<w.toWordIndex()<<std::endl;
-                  neg_mask[w.toWordIndex()] = 0; //MOVE BACK constraintBonus_;
+                  neg_mask[w.toWordIndex()] = constraintBonus_;
                   nc= graph->constant({1, 1, (int)currentDimBatch, 32000}, inits::fromVector(neg_mask));
 
               }
