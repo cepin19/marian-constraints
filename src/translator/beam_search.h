@@ -653,10 +653,8 @@ public:
         //**********************************************************************
         // compute expanded path scores with word prediction probs from all scorers
         auto expandedPathScores = prevPathScores; // will become [maxBeamSize, 1, currDimBatch, dimVocab]
-        if (t==13){
-            std::cerr<<"omfg its THE timestep!! It's happening NOW!" << std::endl;
-        }
         Expr logProbs;
+          std::vector<Expr> neg_masks;
           Expr nc;
           if (constraintsModifySoftmax ) {
               std::vector<float> neg_mask(32000,0.0);
@@ -667,20 +665,6 @@ public:
 
               }
           }
-          if (trieConstraint_){
-              std::vector<float> neg_mask(32000,0.0);
-              for (auto b: beams){
-                  for (auto hyp:b){
-                      for (auto active:hyp->constraintTrieStates){
-                          for (auto id:active->finalIds){
-                              // if (id.toString()=="1082"){
-                              std::cerr << "FINAL ID!!" << id.toString() << std::endl;//}
-                              neg_mask[id.toWordIndex()] = constraintBonus_;
-                          }
-
-                  }
-              }
-              }
 
               //here I need to make a mask with different values for each beam
 /*
@@ -694,8 +678,8 @@ public:
                   }
               }
               */
-              nc= graph->constant({1, 1, (int)currentDimBatch, 32000}, inits::fromVector(neg_mask));
-          }
+
+
           for(size_t i = 0; i < scorers_.size(); ++i) {
           if (factorGroup == 0) {
             // compute output probabilities for current output time step
@@ -720,7 +704,29 @@ public:
               logProbs = states[i]->getLogProbs().getFactoredLogits(factorGroup); // [maxBeamSize, 1, currentDimBatch, dimVocab]
               //debug(logProbs,"logProbs");
               if (constraintsModifySoftmax or trieConstraint_) {
-                    logProbs=logProbs+nc;
+
+                  if (trieConstraint_){
+                      std::vector<float> neg_mask(32000,0.0);
+                      for (auto b: beams){
+                          for (size_t bi=0;bi<logProbs->shape()[0];bi++){
+                              auto hyp=b[bi];
+                              for (auto active:hyp->constraintTrieStates){
+                                  for (auto id:active->finalIds){
+                                      // if (id.toString()=="1082"){
+                                      std::cerr << "FINAL ID!!" << id.toString() << std::endl;//}
+                                      neg_mask[id.toWordIndex()] = constraintBonus_;
+                                  }
+
+                              }
+                              // neg_masks.insert(neg_masks.begin(),neg_mask);
+                              nc= graph->constant({1, 1, (int)currentDimBatch, 32000}, inits::fromVector(neg_mask));
+                              neg_masks.insert(neg_masks.begin(),nc);
+                          }
+
+                      }
+                  }
+                  Expr final_mask=concatenate(neg_masks);
+                    logProbs=logProbs+final_mask;
                   }
               //debug(logProbs,"logProbs");
 
