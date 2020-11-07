@@ -822,7 +822,8 @@ public:
                           std::cerr << "ok, here we go" << std::endl;
                       }
                       size_t active_i = 0;
-                      for (auto &active: newhyp->constraintTrieStates) {
+                      auto oldStates=newhyp->constraintTrieStates;
+                      for (auto &active: oldStates) {
                           bool updated = false;
                           if (haveChildren(active)) {
 
