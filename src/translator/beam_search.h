@@ -397,7 +397,7 @@ public:
            multiTokenIdsTracker.push_back(std::vector<int>{-1,-1});
        }
  */
-      if (paraphrase_ and !multiTokenConstraint_) {
+      if (paraphrase_ and !multiTokenConstraint_ and !trieConstraint_) {
       static std::ifstream goldtrans(options_->get<std::string>("negative-constraints"));
       std::string line;
       std::vector<std::string> num_tokens;
@@ -501,40 +501,46 @@ public:
     std::vector<IndexType> batchIdxMap(origDimBatch); // Record at which batch entry a beam is looking.
                                                       // By default that corresponds to position in array,
                                                       // but shifts in the course of removing batch entries when they are finished
-      YAML::Node constraints = YAML::LoadFile(options_->get<std::string>("negative-constraints"));
-      std::vector<std::vector<std::string>> constraintsString = constraints.as<std::vector<std::vector<std::string>>>();
-      std::vector<Word> singleConstraint;
-      Beams beams;
 
-      for (size_t batch_i=0;batch_i<origDimBatch;batch_i++){
-          Beam newBeam;
-        for (size_t bi=0;bi<beamSize_;bi++){
-            auto hyp=Hypothesis::New();
-            std::cerr << "new hyp" << std::endl;
-            //constraintTrieState.clear();
-            //tohle by melo pak byt v konstruktoru Beam moznoa
-            //hyp->constraintTrieStates.push_back();
-            std::vector<marian::Trie*>constraintTrieState;
+      //
+      Beams beams(origDimBatch, Beam(beamSize_, Hypothesis::New()));
+      if (trieConstraint_) {
+          beams.clear();
 
-            Trie* head=nullptr;
-            for (auto constraint:constraintsString){
-                std::cerr << "new constraint" << std::endl;
-                for (auto s:constraint){
-                    std::cerr << "adding " << s << " id: "<< (*trgVocab_)[s].toString() << std::endl;
-                    singleConstraint.push_back((*trgVocab_)[s]);
-                }
-                insert(head, singleConstraint);
-                singleConstraint.clear();
-            }
-            hyp->constraintTrieRoot=head;
-            hyp->constraintTrieStates.push_back(head);//=constraintTrieState;
-            newBeam.push_back(hyp);
+          YAML::Node constraints = YAML::LoadFile(options_->get<std::string>("negative-constraints"));
 
-        }
-        beams.push_back(newBeam);
 
-    }
+          std::vector<std::vector<std::string>> constraintsString = constraints.as<std::vector<std::vector<std::string>>>();
+          std::vector<Word> singleConstraint;
+          for (size_t batch_i = 0; batch_i < origDimBatch; batch_i++) {
+              Beam newBeam;
+              for (size_t bi = 0; bi < beamSize_; bi++) {
+                  auto hyp = Hypothesis::New();
+                  std::cerr << "new hyp" << std::endl;
+                  //constraintTrieState.clear();
+                  //tohle by melo pak byt v konstruktoru Beam moznoa
+                  //hyp->constraintTrieStates.push_back();
+                  std::vector<marian::Trie *> constraintTrieState;
 
+                  Trie *head = nullptr;
+                  for (auto constraint:constraintsString) {
+                      std::cerr << "new constraint" << std::endl;
+                      for (auto s:constraint) {
+                          std::cerr << "adding " << s << " id: " << (*trgVocab_)[s].toString() << std::endl;
+                          singleConstraint.push_back((*trgVocab_)[s]);
+                      }
+                      insert(head, singleConstraint);
+                      singleConstraint.clear();
+                  }
+                  hyp->constraintTrieRoot = head;
+                  hyp->constraintTrieStates.push_back(head);//=constraintTrieState;
+                  newBeam.push_back(hyp);
+
+              }
+              beams.push_back(newBeam);
+
+          }
+      }
     const std::vector<bool> emptyBatchEntries; // used for recording if there are empty input batch entries
     for(int origBatchIdx = 0; origBatchIdx < origDimBatch; ++origBatchIdx) {
       batchIdxMap[origBatchIdx] = origBatchIdx; // map to same position on initialization
@@ -703,12 +709,14 @@ public:
               auto shortlist = scorers_[i]->getShortlist();
               logProbs = states[i]->getLogProbs().getFactoredLogits(factorGroup); // [maxBeamSize, 1, currentDimBatch, dimVocab]
               //debug(logProbs,"logProbs");
+              std::vector<float> neg_mask(logProbs->shape()[3],0.0); //dimVocab
               if (constraintsModifySoftmax or trieConstraint_) {
 
                   if (trieConstraint_){
-                      std::vector<float> neg_mask(32000,0.0);
+
                       for (auto b: beams){
                           for (size_t bi=0;bi<logProbs->shape()[0];bi++){
+
                               auto hyp=b[bi];
                               for (auto active:hyp->constraintTrieStates){
                                   for (auto id:active->finalIds){
@@ -719,7 +727,7 @@ public:
 
                               }
                               // neg_masks.insert(neg_masks.begin(),neg_mask);
-                              nc= graph->constant({1, 1, (int)currentDimBatch, 32000}, inits::fromVector(neg_mask));
+                              nc= graph->constant({1, 1, (int)currentDimBatch, logProbs->shape()[3]}, inits::fromVector(neg_mask));
                               neg_masks.insert(neg_masks.begin(),nc);
                           }
 
