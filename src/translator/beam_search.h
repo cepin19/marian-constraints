@@ -716,6 +716,7 @@ public:
               std::vector<float> neg_mask(logProbs->shape()[3],0.0); //dimVocab
               if (constraintsModifySoftmax or trieConstraint_) {
                   if (constraintsModifySoftmax ) {
+                      if (!vocabIDsent.empty()){
                               for (auto w:vocabIDsent) {
                                   //std::cerr<<w.toWordIndex()<<std::endl;
                                   neg_mask[w.toWordIndex()] = constraintBonus_;
@@ -725,6 +726,7 @@ public:
 
                               }
                               logProbs=logProbs+nc;
+                      }
 
                   }
                   if (trieConstraint_){
