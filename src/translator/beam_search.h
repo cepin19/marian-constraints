@@ -246,6 +246,8 @@ public:
       auto hyp = Hypothesis::New(prevHyp, word, prevBeamHypIdx, pathScore);
         hyp->constraintTrieRoot=prevHyp->constraintTrieRoot;
         hyp->constraintTrieStates=prevHyp->constraintTrieStates;
+        hyp->multiTokenIdsTracker=prevHyp->multiTokenIdsTracker;
+        hyp->multiTokenScoreTracker=prevHyp->multiTokenScoreTracker;
       // Set score breakdown for n-best lists
       if(options_->get<bool>("n-best")) {
         auto breakDown = beam[beamHypIdx]->getScoreBreakdown();
@@ -415,47 +417,6 @@ public:
       std::vector<Trie*> constraintTries;
       std::vector<std::vector<Trie*>> constraintTriesActiveNodes; //multiple active states for each beam, TODO add batch dimension
 
-      if (paraphrase_ and multiTokenConstraint_) {
-          YAML::Node constraints = YAML::LoadFile(options_->get<std::string>("negative-constraints"));
-          std::vector<std::vector<std::string>> constraintsString = constraints.as<std::vector<std::vector<std::string>>>();
-          std::vector<Word> singleConstraint;
-        /*  for (int i=0;i<12;i++) {
-
-              constraintTriesActiveNodes.push_back(std::vector<Trie*>{});
-                Trie* head=nullptr;
-              for (auto constraint:constraintsString){
-                  std::cerr << "new constraint" << std::endl;
-                  for (auto s:constraint){
-                      std::cerr << "adding " << s << " id: "<< (*trgVocab_)[s].toString() << std::endl;
-                      singleConstraint.push_back((*trgVocab_)[s]);
-                  }
-                  insert(head, singleConstraint);
-                  }
-              constraintTries.push_back(head);
-              constraintTriesActiveNodes[i].push_back(head);
-
-          }*/
-          for (auto constraint:constraintsString){
-              std::cerr << "new constraint" << std::endl;
-
-              for (auto s:constraint){
-                    std::cerr << "adding " << s << " id: "<< (*trgVocab_)[s].toString() << std::endl;
-                  singleConstraint.push_back((*trgVocab_)[s]);
-              }
-              for (auto head:constraintTries) {
-                  insert(head, singleConstraint);
-              }
-              multiTokenIds.push_back(singleConstraint);
-              singleConstraint.clear();
-              }
-
-
-
-          std::vector<std::vector<int>> v(12, std::vector<int>(multiTokenIds.size(), -1));
-          multiTokenIdsTracker=v;
-          std::vector<std::vector<float>> v1(12, std::vector<float>(multiTokenIds.size(), 0));
-          multiTokenScoreTracker=v1;
-      }
 
 
 
@@ -541,7 +502,58 @@ public:
 
           }
       }
-    const std::vector<bool> emptyBatchEntries; // used for recording if there are empty input batch entries
+      if (paraphrase_ and multiTokenConstraint_) {
+          YAML::Node constraints = YAML::LoadFile(options_->get<std::string>("negative-constraints"));
+          std::vector<std::vector<std::string>> constraintsString = constraints.as<std::vector<std::vector<std::string>>>();
+          std::vector<Word> singleConstraint;
+          beams.clear();
+          /*  for (int i=0;i<12;i++) {
+
+                constraintTriesActiveNodes.push_back(std::vector<Trie*>{});
+                  Trie* head=nullptr;
+                for (auto constraint:constraintsString){
+                    std::cerr << "new constraint" << std::endl;
+                    for (auto s:constraint){
+                        std::cerr << "adding " << s << " id: "<< (*trgVocab_)[s].toString() << std::endl;
+                        singleConstraint.push_back((*trgVocab_)[s]);
+                    }
+                    insert(head, singleConstraint);
+                    }
+                constraintTries.push_back(head);
+                constraintTriesActiveNodes[i].push_back(head);
+
+            }*/
+
+                  for (auto constraint:constraintsString) {
+                      std::cerr << "new constraint" << std::endl;
+
+                      for (auto s:constraint) {
+                          std::cerr << "adding " << s << " id: " << (*trgVocab_)[s].toString() << std::endl;
+                          singleConstraint.push_back((*trgVocab_)[s]);
+                      }
+                      for (auto head:constraintTries) {
+                          insert(head, singleConstraint);
+                      }
+                      multiTokenIds.push_back(singleConstraint);
+                      singleConstraint.clear();
+                  }
+
+          for (size_t batch_i = 0; batch_i < origDimBatch; batch_i++) {
+              Beam newBeam;
+              for (size_t bi = 0; bi < beamSize_; bi++) {
+                  auto hyp = Hypothesis::New();
+
+                  std::vector<int> v(std::vector<int>(multiTokenIds.size(), -1));
+                  hyp->multiTokenIdsTracker = v;
+                  std::vector<float> v1(std::vector<float>(multiTokenIds.size(), 0));
+                  hyp->multiTokenScoreTracker = v1;
+                  newBeam.push_back(hyp);
+              }
+              beams.push_back(newBeam);
+
+          }
+      }
+      const std::vector<bool> emptyBatchEntries; // used for recording if there are empty input batch entries
     for(int origBatchIdx = 0; origBatchIdx < origDimBatch; ++origBatchIdx) {
       batchIdxMap[origBatchIdx] = origBatchIdx; // map to same position on initialization
       auto& beam = beams[origBatchIdx];
@@ -659,18 +671,10 @@ public:
         //**********************************************************************
         // compute expanded path scores with word prediction probs from all scorers
         auto expandedPathScores = prevPathScores; // will become [maxBeamSize, 1, currDimBatch, dimVocab]
-        Expr logProbs;
+          Expr logProbs;
           std::vector<Expr> neg_masks;
           Expr nc;
-          if (constraintsModifySoftmax ) {
-              std::vector<float> neg_mask(32000,0.0);
-              for (auto w:vocabIDsent) {
-                  //std::cerr<<w.toWordIndex()<<std::endl;
-                  neg_mask[w.toWordIndex()] = constraintBonus_;
-                  nc= graph->constant({1, 1, (int)currentDimBatch, 32000}, inits::fromVector(neg_mask));
 
-              }
-          }
 
               //here I need to make a mask with different values for each beam
 /*
@@ -711,7 +715,18 @@ public:
               //debug(logProbs,"logProbs");
               std::vector<float> neg_mask(logProbs->shape()[3],0.0); //dimVocab
               if (constraintsModifySoftmax or trieConstraint_) {
+                  if (constraintsModifySoftmax ) {
+                              for (auto w:vocabIDsent) {
+                                  //std::cerr<<w.toWordIndex()<<std::endl;
+                                  neg_mask[w.toWordIndex()] = constraintBonus_;
+                                  nc = graph->constant({1, 1, (int) currentDimBatch, logProbs->shape()[3]},
+                                                       inits::fromVector(neg_mask));
+                                  //neg_masks.insert(neg_masks.begin(), nc);
 
+                              }
+                              logProbs=logProbs+nc;
+
+                  }
                   if (trieConstraint_){
 
                       for (auto b: beams){
@@ -732,10 +747,11 @@ public:
                           }
 
                       }
-                  }
+
                   Expr final_mask=concatenate(neg_masks);
                     logProbs=logProbs+final_mask;
                   }
+              }
               //debug(logProbs,"logProbs");
 
             //}
@@ -800,32 +816,43 @@ public:
           beams = filterForParaphrases(beams, vocabIDsent);
         }
 
-    /*    // rearange the active states in the trie or in the constraint list to be in sync with new beam indices
-          std::vector<Trie *> newConstraintTries;
-          std::vector<std::vector<Trie *>> newConstraintTriesActiveNodes;
-        for(auto beam : beams) {
-            size_t bi=0;
-            for (auto newhyp : beam){
-                Trie *headCopy=new Trie;
-                *headCopy=*constraintTries[newhyp->getPrevStateIndex()];
-                std::vector<Trie *> activeCopy;
-                for (auto at:constraintTriesActiveNodes[newhyp->getPrevStateIndex()]){
-                    Trie *atCopy=new Trie;
-                    *atCopy=*at;
-                }
+        // rearange the active states in the constraint list to be in sync with new beam indices
+          /*  for(auto beam : beams) {
+             size_t bi=0;
+             for (auto newhyp : beam){
+                 multiTokenIdsTracker[bi]=multiTokenIdsTracker[newhyp->getPrevStateIndex()];
+                 std::cerr << "changing pointer for beam " << bi << " to" << newhyp->getPrevStateIndex() << std::endl;
+                 bi++;
+             }
 
-                //Trie *headCopyPointer=&headCopy;
-                //std::vector<Trie *> activeCopy=constraintTriesActiveNodes[newhyp->getPrevStateIndex()];
-                newConstraintTries.push_back(headCopy);
-                newConstraintTriesActiveNodes.push_back(activeCopy);
-                std::cerr << "changing pointer for beam " << bi << " to" << newhyp->getPrevStateIndex() << std::endl;
-                bi++;
-            }
+         }
 
-        }
-        constraintTries=newConstraintTries;
-        constraintTriesActiveNodes=newConstraintTriesActiveNodes;
-*/
+       // rearange the active states in the trie or in the constraint list to be in sync with new beam indices
+            std::vector<Trie *> newConstraintTries;
+            std::vector<std::vector<Trie *>> newConstraintTriesActiveNodes;
+          for(auto beam : beams) {
+              size_t bi=0;
+              for (auto newhyp : beam){
+                  Trie *headCopy=new Trie;
+                  *headCopy=*constraintTries[newhyp->getPrevStateIndex()];
+                  std::vector<Trie *> activeCopy;
+                  for (auto at:constraintTriesActiveNodes[newhyp->getPrevStateIndex()]){
+                      Trie *atCopy=new Trie;
+                      *atCopy=*at;
+                  }
+
+                  //Trie *headCopyPointer=&headCopy;
+                  //std::vector<Trie *> activeCopy=constraintTriesActiveNodes[newhyp->getPrevStateIndex()];
+                  newConstraintTries.push_back(headCopy);
+                  newConstraintTriesActiveNodes.push_back(activeCopy);
+                  std::cerr << "changing pointer for beam " << bi << " to" << newhyp->getPrevStateIndex() << std::endl;
+                  bi++;
+              }
+
+          }
+          constraintTries=newConstraintTries;
+          constraintTriesActiveNodes=newConstraintTriesActiveNodes;
+  */
           if (trieConstraint_) {
               for (auto beam : beams) {
                   size_t bi = 0;
@@ -895,27 +922,30 @@ public:
                 Beam newBeam;
                 for (auto newhyp : beam) {
                     bool constraintMet=false;
-
+                    if (newhyp->getWord().toString()=="12961" or newhyp->getWord().toString()=="1802"){
+                        std::cerr<<"asdasd"<<std::endl;
+                    }
                     //float score = newhyp->getLastWordScore();
                     //LOG(info,"newhyp word in beam {}: {}, {}",bi,newhyp->getWord().toString(),score);
                     for (size_t constraintId=0;constraintId<multiTokenIds.size();constraintId++) {
-                        if (multiTokenIds[constraintId][multiTokenIdsTracker[bi][constraintId]+1]==newhyp->getWord()) { // continue the constraint
-                            multiTokenIdsTracker[bi][constraintId]++;
-                            multiTokenScoreTracker[bi][constraintId]+=newhyp->getLastWordScore();
+                        if (multiTokenIds[constraintId][newhyp->multiTokenIdsTracker[constraintId]+1]==newhyp->getWord()) { // continue the constraint
+                            newhyp->multiTokenIdsTracker[constraintId]++;
+                            newhyp->multiTokenScoreTracker[constraintId]+=newhyp->getLastWordScore();
 
 
                         } else
                         {
-                            multiTokenIdsTracker[bi][constraintId]=-1;
-                            multiTokenScoreTracker[bi][constraintId]=0;
+                            newhyp->multiTokenIdsTracker[constraintId]=-1;
+                            newhyp->multiTokenScoreTracker[constraintId]=0;
 
                         }
-                        if ((multiTokenIdsTracker[bi][constraintId]==multiTokenIds[constraintId].size()-1) and multiTokenScoreTracker[bi][constraintId]<paraphraseProb_) {
+                        if ((newhyp->multiTokenIdsTracker[constraintId]==multiTokenIds[constraintId].size()-1) and newhyp->multiTokenScoreTracker[constraintId]<paraphraseProb_) {
                             constraintMet=true;
                             break;
                         }
                     }
                     if (constraintMet) {
+                        std::cerr << "constraint met" << std::endl;
                         auto unkhyp = Hypothesis::New();
                         auto unk = trgVocab_->getUnkId();
                         newBeam.push_back(Hypothesis::New(unkhyp, unk, 0, -9999.0f));

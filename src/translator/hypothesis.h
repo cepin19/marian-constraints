@@ -227,7 +227,8 @@ private:
 public:
     std::vector<Trie *> constraintTrieStates;
     Trie * constraintTrieRoot;
-
+    std::vector<int> multiTokenIdsTracker;
+    std::vector<float> multiTokenScoreTracker;
     // Use this whenever creating a pointer to MemoryPiece
  template <class ...Args>
  static PtrType New(Args&& ...args) {
