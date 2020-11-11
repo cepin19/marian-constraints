@@ -726,7 +726,7 @@ public:
 
                               }
                               logProbs=logProbs+nc;
-                      }
+                       }
 
                   }
                   if (trieConstraint_){
