@@ -950,7 +950,11 @@ public:
                         std::cerr << "constraint met" << std::endl;
                         auto unkhyp = Hypothesis::New();
                         auto unk = trgVocab_->getUnkId();
-                        newBeam.push_back(Hypothesis::New(unkhyp, unk, 0, -9999.0f));
+                        auto nh = Hypothesis::New(unkhyp, unk, 0, -9999.0f);
+                        nh->multiTokenIdsTracker=newhyp->multiTokenIdsTracker;
+                        nh->multiTokenScoreTracker=newhyp->multiTokenScoreTracker;
+
+                        newBeam.push_back(nh);
                     } else {
                         newBeam.push_back(newhyp);
                     }
