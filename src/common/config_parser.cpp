@@ -506,6 +506,9 @@ void ConfigParser::addOptionsTraining(cli::CLIWrapper& cli) {
   cli.add<bool>("--multi-node-overlap",
      "Overlap model computations with MPI communication",
      true);
+    cli.add<int>("--shift-token-id",
+                 "Vocabulary ID of the token after which are the positional embeddings shifted by 1024",
+                 -1);
 
   // add ULR settings
   addSuboptionsULR(cli);
@@ -607,6 +610,9 @@ void ConfigParser::addOptionsTranslation(cli::CLIWrapper& cli) {
   cli.add<float>("--max-length-factor",
       "Maximum target length as source length times factor",
       3);
+    cli.add<int>("--shift-token-id",
+                   "Vocabulary ID of the token after which are the positional embeddings shifted by 1024",
+                   -1);
   cli.add<float>("--word-penalty",
       "Subtract (arg * translation length) from translation score");
   cli.add<bool>("--allow-unk",

@@ -91,11 +91,132 @@ public:
 
     return embeddings;
   }
+// for constraint decoding with constraints as a part of the input sequence, shifting constraint positional emebeddings seems to help
+    Expr addPositionalEmbeddingsShifted(Expr input, std::vector<int> shiftIndices, size_t shiftOffset=1024, int start = 0, bool trainPosEmbeddings = false) const {
+        int dimEmb   = input->shape()[-1];
+        int dimWords = input->shape()[-3] ;
+
+        Expr embeddings = input;
+
+        if(trainPosEmbeddings) {
+            int maxLength = opt<int>("max-length");
+
+            // Hack for translating with length longer than trained embeddings
+            // We check if the embedding matrix "Wpos" already exist so we can
+            // check the number of positions in that loaded parameter.
+            // We then have to restict the maximum length to the maximum positon
+            // and positions beyond this will be the maximum position.
+            Expr seenEmb = graph_->get("Wpos");
+            int numPos = seenEmb ? seenEmb->shape()[-2] : maxLength;
+
+            auto embeddingLayer = embedding(
+                    "prefix", "Wpos", // share positional embeddings across all encoders/decorders
+                    "dimVocab", numPos,
+                    "dimEmb", dimEmb)
+                    .construct(graph_);
+
+            // fill with increasing numbers until current length or maxPos
+            std::vector<IndexType> positions(dimWords, numPos - 1);
+            for(int i = 0; i < std::min(dimWords, numPos); ++i)
+                positions[i] = i;
+
+            auto signal = embeddingLayer->applyIndices(positions, {dimWords, 1, dimEmb});
+            embeddings = embeddings + signal;
+        } else {
+            // @TODO : test if embeddings should be scaled when trainable
+            // according to paper embeddings are scaled up by \sqrt(d_m)
+            embeddings = std::sqrt((float)dimEmb) * embeddings; // embeddings were initialized to unit length; so norms will be in order of sqrt(dimEmb)
+           // auto embeddingsReshaped=reshape(embeddings,{embeddings->shape()[1],dimWords,dimEmb});
+
+//fill with ones up until the first shifted word
+            std::vector<float> mask;
+
+
+            std::vector<Expr> masksNormal;
+            std::vector<Expr> masksShifted;
+            std::vector<Expr> signals;
+            //over all sentences
+            std::cout << "shift indices: " <<std::endl;
+            for (auto si:shiftIndices){
+                std::cout << si <<std::endl;
+            }
+            for (int i=0;i<input->shape()[-2];i++){
+                Expr sentence_signal;
+                std::cout << " checking sentence " << i << std::endl;
+                mask.clear();
+                if (shiftIndices.at(i)!=-1) {
+                    std::cout << " shifting at sentence " << i << std::endl;
+
+                    mask.insert(mask.end(), shiftIndices.at(i), 1.0);
+                    mask.insert(mask.end(), dimWords - shiftIndices.at(i), 0.0);
+                    sentence_signal=graph_->constant({shiftIndices.at(i),1,dimEmb},inits::sinusoidalPositionEmbeddings(start));
+                }
+                else {
+                    sentence_signal=graph_->constant({dimWords,1,dimEmb},inits::sinusoidalPositionEmbeddings(start));
+
+                    mask.insert(mask.end(), dimWords, 1.0);
+
+                }
+                std::cout << " mask at sentence " << i << std::endl;
+                for (auto me:mask){
+                    std::cout <<me << std::endl;
+                }
+
+                // we apply the normal, 0-indexed positional embeddings with this mask
+                auto m=repeat(graph_->constant({dimWords,1, 1}, inits::fromVector(mask)),dimEmb,-1);
+                masksNormal.insert(masksNormal.begin(),m);
+
+
+
+                mask.clear();
+                //negative mask for shifted embs
+                if (shiftIndices.at(i)!=-1) {
+                    sentence_signal=concatenate({sentence_signal,graph_->constant({dimWords-shiftIndices.at(i),1,dimEmb},inits::sinusoidalPositionEmbeddings(shiftOffset))},0);
+
+                    mask.insert(mask.end(),shiftIndices.at(i),0.0);
+                mask.insert(mask.end(),dimWords-shiftIndices.at(i),1.0);}
+                    else {
+                        mask.insert(mask.end(), dimWords, 0.0);
+
+                    }
+                std::cout << " shifted mask at sentence " << i << std::endl;
+                for (auto me:mask){
+                    std::cout <<me << std::endl;
+                }
+                signals.insert(signals.begin(),sentence_signal);
+                    m=repeat(graph_->constant({dimWords,1, 1}, inits::fromVector(mask)),dimEmb,-1);
+                masksShifted.insert(masksShifted.begin(),m);
+
+
+            }
+            auto signal = concatenate(signals, 1);
+                        auto signal2 = graph_->constant({dimWords, 3, dimEmb},
+                                      inits::sinusoidalPositionEmbeddings(start));
+            auto signalShifted = graph_->constant({dimWords, 3, dimEmb},
+                                      inits::sinusoidalPositionEmbeddings(shiftOffset));
+            auto concatMasks=concatenate(masksShifted,1);
+            debug(concatMasks,"concatMasks");
+            debug(signal,"signal");
+            debug(signal*concatenate(masksNormal,1),"singal*masks");
+            debug(embeddings + signal,"embeddings+signal");
+            debug(embeddings+ signal*concatenate(masksNormal,1)+signalShifted*concatenate(masksShifted,1),"embeddings+signal*masks");
+            embeddings=embeddings+signal;
+            //embeddings=embeddings +  signal2*concatenate(masksNormal,1)+signalShifted*concatenate(masksShifted,1);
+            //embeddings = embeddings + dot(signal,concatenate(masksNormal,1))+dot(signalShifted,concatenate(masksShifted,1));
+
+        }
+
+        return embeddings;
+    }
 
   virtual Expr addSpecialEmbeddings(Expr input, int start = 0, Ptr<data::CorpusBatch> /*batch*/ = nullptr) const {
     bool trainPosEmbeddings = opt<bool>("transformer-train-positions", false);
     return addPositionalEmbeddings(input, start, trainPosEmbeddings);
   }
+    virtual Expr addSpecialEmbeddingsShifted(Expr input, std::vector<int> shiftIndices, size_t shiftOffset,int start = 0, Ptr<data::CorpusBatch> /*batch*/ = nullptr) const {
+        bool trainPosEmbeddings = opt<bool>("transformer-train-positions", false);
+        return addPositionalEmbeddingsShifted(input, shiftIndices, shiftOffset, start, trainPosEmbeddings);
+    }
 
   Expr triangleMask(int length) const {
     // fill triangle mask
@@ -504,12 +625,36 @@ public:
     // create the embedding matrix, considering tying and some other options
     // embed the source words in the batch
     Expr batchEmbeddings, batchMask;
+    int shiftOffset=1024;
+    // index of <sep> token in each sentence
+    std::vector  <int> shiftIndices(dimBatch,-1);
+      WordIndex shiftWord =  opt<int>("shift-token-id");
 
+    int i=0;
+    for (auto w:(*batch)[batchIndex_]->data()){
+        if ((*batch)[batchIndex_]->mask()[i]){
+            if (w.toWordIndex()==shiftWord){
+                std::cout<< "adding to shift indices index" <<   i/dimBatch << " for batch " << dimBatch-i%dimBatch << std::endl;
+                shiftIndices[dimBatch-i%dimBatch-1]=i/dimBatch;
+            }
+            std::cout<<"token i "<< i << " " <<w.toString()<<" belongs to batch" << dimBatch-i%dimBatch << "as word number "<<(i/dimBatch)<<std::endl;
+        }
+        i++;
+
+        //debug(w,"debug");
+    }
     auto embeddingLayer = getEmbeddingLayer(opt<bool>("ulr", false));
     std::tie(batchEmbeddings, batchMask) = embeddingLayer->apply((*batch)[batchIndex_]);
-    batchEmbeddings = addSpecialEmbeddings(batchEmbeddings, /*start=*/0, batch);
-    
-    // reorganize batch and timestep
+    if (false) {
+        batchEmbeddings = addSpecialEmbeddings(batchEmbeddings, /*start=*/0, batch);}
+    else{
+        batchEmbeddings = addSpecialEmbeddingsShifted(batchEmbeddings, shiftIndices,shiftOffset, /*start=*/0, batch);
+
+    }
+    debug(batchEmbeddings,"be");
+      debug(batchMask,"bm");
+
+      // reorganize batch and timestep
     batchEmbeddings = atleast_nd(batchEmbeddings, 4); // [beam depth=1, max length, batch size, vector dim]
     batchMask       = atleast_nd(batchMask, 4);       // [beam depth=1, max length, batch size, vector dim=1]
 
