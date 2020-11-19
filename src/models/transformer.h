@@ -136,16 +136,16 @@ public:
             std::vector<Expr> masksShifted;
             std::vector<Expr> signals;
             //over all sentences
-            std::cout << "shift indices: " <<std::endl;
-            for (auto si:shiftIndices){
+         //   std::cout << "shift indices: " <<std::endl;
+           /* for (auto si:shiftIndices){
                 std::cout << si <<std::endl;
-            }
+            }*/
             for (int i=0;i<input->shape()[-2];i++){
                 Expr sentence_signal;
-                std::cout << " checking sentence " << i << std::endl;
+               // std::cout << " checking sentence " << i << std::endl;
                 mask.clear();
                 if (shiftIndices.at(i)!=-1) {
-                    std::cout << " shifting at sentence " << i << std::endl;
+                   // std::cout << " shifting at sentence " << i << std::endl;
 
                     //mask.insert(mask.end(), shiftIndices.at(i), 1.0);
                     //mask.insert(mask.end(), dimWords - shiftIndices.at(i), 0.0);
@@ -157,10 +157,7 @@ public:
                   //  mask.insert(mask.end(), dimWords, 1.0);
 
                 }
-                std::cout << " mask at sentence " << i << std::endl;
-                for (auto me:mask){
-                    std::cout <<me << std::endl;
-                }
+
 
                 // we apply the normal, 0-indexed positional embeddings with this mask
                 //auto m=repeat(graph_->constant({dimWords,1, 1}, inits::fromVector(mask)),dimEmb,-1);
@@ -179,10 +176,10 @@ public:
                 // ;//       mask.insert(mask.end(), dimWords, 0.0);
 
                     }
-                std::cout << " shifted mask at sentence " << i << std::endl;
-                for (auto me:mask){
-                    std::cout <<me << std::endl;
-                }
+                //std::cout << " shifted mask at sentence " << i << std::endl;
+                //for (auto me:mask){
+                   // std::cout <<me << std::endl;
+                //}
                 signals.insert(signals.begin(),sentence_signal);
                 //    m=repeat(graph_->constant({dimWords,1, 1}, inits::fromVector(mask)),dimEmb,-1);
                 //masksShifted.insert(masksShifted.begin(),m);
@@ -634,10 +631,10 @@ public:
     for (auto w:(*batch)[batchIndex_]->data()){
         if ((*batch)[batchIndex_]->mask()[i]){
             if (w.toWordIndex()==shiftWord){
-                std::cout<< "adding to shift indices index" <<   i/dimBatch << " for batch " << dimBatch-i%dimBatch << std::endl;
+                //std::cout<< "adding to shift indices index" <<   i/dimBatch << " for batch " << dimBatch-i%dimBatch << std::endl;
                 shiftIndices[dimBatch-i%dimBatch-1]=i/dimBatch;
             }
-            std::cout<<"token i "<< i << " " <<w.toString()<<" belongs to batch" << dimBatch-i%dimBatch << "as word number "<<(i/dimBatch)<<std::endl;
+            //std::cout<<"token i "<< i << " " <<w.toString()<<" belongs to batch" << dimBatch-i%dimBatch << "as word number "<<(i/dimBatch)<<std::endl;
         }
         i++;
 
@@ -651,8 +648,8 @@ public:
         batchEmbeddings = addSpecialEmbeddingsShifted(batchEmbeddings, shiftIndices,shiftOffset, /*start=*/0, batch);
 
     }
-    debug(batchEmbeddings,"be");
-      debug(batchMask,"bm");
+    //debug(batchEmbeddings,"be");
+      //debug(batchMask,"bm");
 
       // reorganize batch and timestep
     batchEmbeddings = atleast_nd(batchEmbeddings, 4); // [beam depth=1, max length, batch size, vector dim]
