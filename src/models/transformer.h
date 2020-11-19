@@ -149,7 +149,7 @@ public:
 
                     mask.insert(mask.end(), shiftIndices.at(i), 1.0);
                     mask.insert(mask.end(), dimWords - shiftIndices.at(i), 0.0);
-                    sentence_signal=graph_->constant({shiftIndices.at(i),1,dimEmb},inits::sinusoidalPositionEmbeddings(start));
+                    sentence_signal=graph_->constant({shiftIndices.at(i),input->shape()[-2] ,dimEmb},inits::sinusoidalPositionEmbeddings(start));
                 }
                 else {
                     sentence_signal=graph_->constant({dimWords,1,dimEmb},inits::sinusoidalPositionEmbeddings(start));
@@ -190,9 +190,9 @@ public:
 
             }
             auto signal = concatenate(signals, 1);
-                        auto signal2 = graph_->constant({dimWords, 3, dimEmb},
+                        auto signal2 = graph_->constant({dimWords, input->shape()[-2] , dimEmb},
                                       inits::sinusoidalPositionEmbeddings(start));
-            auto signalShifted = graph_->constant({dimWords, 3, dimEmb},
+            auto signalShifted = graph_->constant({dimWords, input->shape()[-2] , dimEmb},
                                       inits::sinusoidalPositionEmbeddings(shiftOffset));
             auto concatMasks=concatenate(masksShifted,1);
             debug(concatMasks,"concatMasks");
