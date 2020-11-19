@@ -537,8 +537,23 @@ void ConfigParser::addOptionsValidation(cli::CLIWrapper& cli) {
   cli.add<size_t>("--early-stopping",
      "Stop if the first validation metric does not improve for  arg  consecutive validation steps",
      10);
+    cli.add<std::string>("--negative-constraints",
+                         "File with negative constraints, parallel to the input source file.")
+            ->implicit_val("");
 
-  // decoding options
+
+    cli.add<bool>("--constraints-modify-scores",
+                  "add bonus/penalty to scores of the contrained tokens instead of filtering beams");
+    cli.add<float>("--constraint-bonus",
+                   "Bonus/penalty(for negative numbers) for tokens in constraints list", -99999.f);
+    cli.add<bool>("--multi-token-constraint",
+                  "Multi token constraint in yaml format", false);
+    cli.add<bool>("--trie-constraint",
+                  "Trie constraint", false);
+    cli.add<float>("--negative-constraint-probability",
+                   "Blacklist the token from constraints if it's probability is lower than this number.", -0.2f);
+
+    // decoding options
   cli.add<size_t>("--beam-size,-b",
       "Beam size used during search with validating translator",
       12);
