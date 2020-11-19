@@ -189,8 +189,8 @@ public:
 
 
             }
-            auto signal = concatenate(signals, 1);
-                        auto signal2 = graph_->constant({dimWords, input->shape()[-2] , dimEmb},
+           auto signal = concatenate(signals, 1);
+           /*             auto signal2 = graph_->constant({dimWords, input->shape()[-2] , dimEmb},
                                       inits::sinusoidalPositionEmbeddings(start));
             auto signalShifted = graph_->constant({dimWords, input->shape()[-2] , dimEmb},
                                       inits::sinusoidalPositionEmbeddings(shiftOffset));
@@ -199,7 +199,7 @@ public:
             debug(signal,"signal");
             debug(signal*concatenate(masksNormal,1),"singal*masks");
             debug(embeddings + signal,"embeddings+signal");
-            debug(embeddings+ signal*concatenate(masksNormal,1)+signalShifted*concatenate(masksShifted,1),"embeddings+signal*masks");
+            debug(embeddings+ signal*concatenate(masksNormal,1)+signalShifted*concatenate(masksShifted,1),"embeddings+signal*masks");*/
             embeddings=embeddings+signal;
             //embeddings=embeddings +  signal2*concatenate(masksNormal,1)+signalShifted*concatenate(masksShifted,1);
             //embeddings = embeddings + dot(signal,concatenate(masksNormal,1))+dot(signalShifted,concatenate(masksShifted,1));
