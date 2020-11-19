@@ -147,14 +147,14 @@ public:
                 if (shiftIndices.at(i)!=-1) {
                     std::cout << " shifting at sentence " << i << std::endl;
 
-                    mask.insert(mask.end(), shiftIndices.at(i), 1.0);
-                    mask.insert(mask.end(), dimWords - shiftIndices.at(i), 0.0);
-                    sentence_signal=graph_->constant({shiftIndices.at(i),input->shape()[-2] ,dimEmb},inits::sinusoidalPositionEmbeddings(start));
+                    //mask.insert(mask.end(), shiftIndices.at(i), 1.0);
+                    //mask.insert(mask.end(), dimWords - shiftIndices.at(i), 0.0);
+                    sentence_signal=graph_->constant({shiftIndices.at(i),1,dimEmb},inits::sinusoidalPositionEmbeddings(start));
                 }
                 else {
                     sentence_signal=graph_->constant({dimWords,1,dimEmb},inits::sinusoidalPositionEmbeddings(start));
 
-                    mask.insert(mask.end(), dimWords, 1.0);
+                  //  mask.insert(mask.end(), dimWords, 1.0);
 
                 }
                 std::cout << " mask at sentence " << i << std::endl;
@@ -163,8 +163,8 @@ public:
                 }
 
                 // we apply the normal, 0-indexed positional embeddings with this mask
-                auto m=repeat(graph_->constant({dimWords,1, 1}, inits::fromVector(mask)),dimEmb,-1);
-                masksNormal.insert(masksNormal.begin(),m);
+                //auto m=repeat(graph_->constant({dimWords,1, 1}, inits::fromVector(mask)),dimEmb,-1);
+                //masksNormal.insert(masksNormal.begin(),m);
 
 
 
@@ -173,10 +173,10 @@ public:
                 if (shiftIndices.at(i)!=-1) {
                     sentence_signal=concatenate({sentence_signal,graph_->constant({dimWords-shiftIndices.at(i),1,dimEmb},inits::sinusoidalPositionEmbeddings(shiftOffset))},0);
 
-                    mask.insert(mask.end(),shiftIndices.at(i),0.0);
-                mask.insert(mask.end(),dimWords-shiftIndices.at(i),1.0);}
-                    else {
-                        mask.insert(mask.end(), dimWords, 0.0);
+                    //mask.insert(mask.end(),shiftIndices.at(i),0.0);
+               // mask.insert(mask.end(),dimWords-shiftIndices.at(i),1.0);}
+                   // else {
+                // ;//       mask.insert(mask.end(), dimWords, 0.0);
 
                     }
                 std::cout << " shifted mask at sentence " << i << std::endl;
@@ -184,8 +184,8 @@ public:
                     std::cout <<me << std::endl;
                 }
                 signals.insert(signals.begin(),sentence_signal);
-                    m=repeat(graph_->constant({dimWords,1, 1}, inits::fromVector(mask)),dimEmb,-1);
-                masksShifted.insert(masksShifted.begin(),m);
+                //    m=repeat(graph_->constant({dimWords,1, 1}, inits::fromVector(mask)),dimEmb,-1);
+                //masksShifted.insert(masksShifted.begin(),m);
 
 
             }
