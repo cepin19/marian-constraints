@@ -587,7 +587,7 @@ public:
     auto prevBatchIdxMap = batchIdxMap; // [origBatchIdx -> currentBatchIdx] but shifted by one time step
     // main loop over output time steps
     for (size_t t = 0; ; t++) {
-        std::cerr << "TIMESTEP " << t << std::endl;
+        //std::cerr << "TIMESTEP " << t << std::endl;
       ABORT_IF(origDimBatch != beams.size(), "Lost a batch entry??");
       // determine beam size for next output time step, as max over still-active sentences
       // E.g. if all batch entries are down from beam 5 to no more than 4 surviving hyps, then
